@@ -1,7 +1,16 @@
-import { checkForName } from './js/nameChecker'
-import { handleSubmit } from './js/formHandler'
+import { checkForName } from './js/lib';
 
-console.log(checkForName);
+import './styles/reset.scss';
+import './styles/base.scss';
+import './styles/footer.scss';
+import './styles/content.scss';
+import './styles/header.scss';
 
-alert("I EXIST")
-console.log("CHANGE!!");
+
+console.log('it works!')
+
+// export all js files to the output (client) library 
+
+export {
+    checkForName
+}
