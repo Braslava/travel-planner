@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	entry: './src/client/index.js',
@@ -11,6 +12,7 @@ module.exports = {
 	output: {
 		libraryTarget: 'var',
 		library: 'Client',
+		clean: true,
 	},
 	optimization: {
 		minimize: true,
@@ -45,5 +47,6 @@ module.exports = {
 			filename: 'index.html',
 		}),
 		new MiniCssExtractPlugin({ filename: '[name].css' }),
+		new Dotenv(),
 	],
 };
