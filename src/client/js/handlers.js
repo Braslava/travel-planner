@@ -1,21 +1,20 @@
-export function handleSubmit(event) {
+import { getAnalysis, updateResults } from './lib';
+import { form } from './elements';
+
+export async function handleSubmit(event) {
 	event.preventDefault();
+	// select the url from the input field
+	let newsUrl = document.querySelector('#news-url').value.trim();
+	// validate the user input
+	if (!newsUrl) {
+		alert('Please enter a link to the news item in the input box!');
+		return;
+	}
 
-	// check what text was put into the form field
-	let formText = document.getElementById('news-item').value;
-	const text = `None of it has stopped Russian President Vladimir Putin, though. Moscow has been preparing for this.`;
-	const base = 'https://api.meaningcloud.com/sentiment-2.1';
-	const apiKey = process.env.API_KEY;
-	const url = `${base}&key=${apiKey}&lang=auto&txt=${text}`;
+	console.log(newsUrl);
 	console.log('::: Form Submitted :::');
-	fetch(url)
-		.then((res) => res.json())
-		.then(function (res) {
-			console.log(res);
-			//document.querySelector('.results').innerText = res.message;
-		});
-}
-
-export function performAnalysis(url){
-
+	// get data from the MeaningCloud API
+	getAnalysis(newsUrl)
+		.then((data) => updateResults(data))
+		.then(form.reset());
 }
