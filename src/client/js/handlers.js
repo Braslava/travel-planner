@@ -7,7 +7,7 @@ export async function handleSubmit(event) {
 	let newsUrl = document.querySelector('#news-url').value.trim();
 	// validate the user input
 	if (!newsUrl) {
-		alert('Please enter a link to the news item in the input box!');
+		alert('Please enter a link in the input box!');
 		return;
 	}
 
