@@ -1,0 +1,32 @@
+@use 'base';
+
+.button {
+	display: block;
+	color: base.$font-primary;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: base.$accents;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+		cursor: pointer;
+	}
+}
+
+.heading--main {
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.heading2 {
+	font-size: 24px;
+	text-align: center;
+	font-weight: 700;
+	color: base.$font-secondary;
+}

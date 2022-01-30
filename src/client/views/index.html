@@ -14,90 +14,99 @@
     </header>
     <section class="app">
         <div class="hero">
-            <h1 class="heading1">News sentiment analysis</h1>
-
+            <h1 class="heading--main">News sentiment analysis</h1>
             <form action="" class="app__form">
-                <label for="url">Link to the news item
-                    <input type="url" placeholder="https://example.com" name="url" minlength="10" id="news-url">
-                </label>
-                <button type="submit" class="submit-btn">Evaluate</button>
+                <label for="url">Link to the news item</label>
+                <input type="url" placeholder="https://example.com" name="url" minlength="10" id="news-url">
+                <button type="submit" class="button submit-btn">Evaluate</button>
             </form>
 
         </div>
-        <div class="container results">
-            <h2>Results </h2>
-            <p>Polarity: <span id="polarity"></span></p>
-            <p>Agreement: <span id="agreement"></span></p>
-            <p>Confidence: <span id="confidence"></span></p>
-            <p>Irony: <span id="irony"></span></p>
-            <p>Subjectivity: <span id="subjectivity"></span></p>
-        </div>
-        <div class="container results-interpretation">
-            <div class="measurement-container">
-                <h2>How to interpret the results?</h2>
-                <p>Result interpretation according to <a href="https://www.meaningcloud.com/"
-                        class="link">MeaningCloud</a>
-                </p>
+        <div class="container">
+            <div class="results">
+                <h2 class="heading2">Results </h2>
+                <p>Polarity: <span id="polarity"></span></p>
+                <p>Agreement: <span id="agreement"></span></p>
+                <p>Confidence: <span id="confidence"></span></p>
+                <p>Irony: <span id="irony"></span></p>
+                <p>Subjectivity: <span id="subjectivity"></span></p>
             </div>
-            <div class="measurement-container">
-                <p class="measurement">Polarity</p>
-                <p class="interpretation">distinguishes very positive and very negative opinions, as well as the absence
-                    of sentiment. Possible values are:
-                </p>
-                <ul>
-                    <li> P+: strong positive</li>
-                    <li>P: positive</li>
-                    <li>NEU: neutral</li>
-                    <li> N: negative</li>
-                    <li> N+: strong negative</li>
-                    <li>NONE: without polarity</li>
-                </ul>
+            <div class="info">
+                <div class="measurement-container">
+                    <h2 class="heading2">How does it work?</h2>
+                    <p>
+                        This website uses <a href="https://www.meaningcloud.com/" class="link">MeaningCloud</a>
+                        sentiment analysis to asses the polarity, subjectivity, irony and emotional agreement of a text.
+                        To analyze a news item, simply paste the link to it in the input field above.
+                    </p>
+                </div>
+                <div class="measurement-container">
+                    <h2 class="heading2">How to interpret the results?</h2>
+                    <p>
+                        Result interpretation according to <a href="https://www.meaningcloud.com/"
+                            class="link">MeaningCloud</a>
+                    </p>
+                </div>
+                <div class="measurement-container">
+                    <p class="measurement">Polarity</p>
+                    <p class="interpretation">distinguishes very positive and very negative opinions, as well as the
+                        absence
+                        of sentiment. Possible values are:
+                    </p>
+                    <ul>
+                        <li> P+: strong positive</li>
+                        <li>P: positive</li>
+                        <li>NEU: neutral</li>
+                        <li> N: negative</li>
+                        <li> N+: strong negative</li>
+                        <li>NONE: without polarity</li>
+                    </ul>
+                </div>
+                <div class="measurement-container">
+                    <p class="measurement">Agreement</p>
+                    <p class="interpretation">
+                        Marks the agreement between the sentiments detected in the text, the sentence
+                        or the segment it refers to. It has two possible values:
+                    </p>
+                    <ul>
+                        <li>AGREEMENT: the different elements have the same polarity.</li>
+                        <li>
+                            DISAGREEMENT: there is disagreement between the different elements' polarity.
+                        </li>
+                    </ul>
+                </div>
+                <div class="measurement-container">
+                    <p class="measurement">Subjectivity</p>
+                    <p class="interpretation">
+                        Marks the subjectivity of the text. It has two possible values:
+                    </p>
+                    <ul>
+                        <li>
+                            OBJECTIVE: the text does not have any subjectivity marks.
+                        </li>
+                        <li>
+                            SUBJECTIVE: the text has subjective marks.
+                        </li>
+                    </ul>
+                </div>
+                <div class="measurement-container">
+                    <p class="measurement">Confidence</p>
+                    <p class="interpretation">
+                        represents the confidence associated with the sentiment analysis performed on
+                        the text. Its value is an integer number in the 0-100 range.
+                    </p>
+                </div>
+                <div class="measurement-container">
+                    <p class="measurement">Irony</p>
+                    <p class="interpretation">Indicates the irony of the text. It has two possible values:
+                    </p>
+                    <ul>
+                        <li>NONIRONIC: the text does not have any irony marks.</li>
+                        <li>IRONIC: the text has irony marks.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="measurement-container">
-                <p class="measurement">Agreement</p>
-                <p class="interpretation">
-                    Marks the agreement between the sentiments detected in the text, the sentence
-                    or the segment it refers to. It has two possible values:
-                </p>
-                <ul>
-                    <li>AGREEMENT: the different elements have the same polarity.</li>
-                    <li>
-                        DISAGREEMENT: there is disagreement between the different elements' polarity.
-                    </li>
-                </ul>
-            </div>
-            <div class="measurement-container">
-                <p class="measurement">Subjectivity</p>
-                <p class="interpretation">
-                    Marks the subjectivity of the text. It has two possible values:
-                </p>
-                <ul>
-                    <li>
-                        OBJECTIVE: the text does not have any subjectivity marks.
-                    </li>
-                    <li>
-                        SUBJECTIVE: the text has subjective marks.
-                    </li>
-                </ul>
-            </div>
-            <div class="measurement-container">
-                <p class="measurement">Confidence</p>
-                <p class="interpretation">
-                    represents the confidence associated with the sentiment analysis performed on
-                    the text. Its value is an integer number in the 0-100 range.
-                </p>
-            </div>
-            <div class="measurement-container">
-                <p class="measurement">Irony</p>
-                <p class="interpretation">Indicates the irony of the text. It has two possible values:
-                </p>
-                <ul>
-                    <li>NONIRONIC: the text does not have any irony marks.</li>
-                    <li>IRONIC: the text has irony marks.</li>
-                </ul>
-            </div>
-            <div class="measurement-container">
-            </div>
+
         </div>
     </section>
     <footer class="footer"></footer>

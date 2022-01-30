@@ -1,37 +1,23 @@
 @use 'base';
+@use 'elements';
 
 .app {
 	display: grid;
 	gap: 10px;
 }
 
-.container {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 10px;
-}
-
-.measurement-container {
-	display: grid;
-	gap: 10px;
-
-	.measurement {
-		font-weight: 700;
-		margin-top: 20px;
-	}
-
-	.interpretation {
-		font-size: 14px;
-	}
-
-	ul {
-		font-size: 14px;
-	}
+.hero {
+	margin: 20px 0 15px 0;
+	background: url(../../assets/pexels-rovenimagescom-949587.jpg);
+	// background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 60px 0 40px 0;
 }
 
 .app__form {
 	display: flex;
+	gap: 10px;
 	flex-direction: column;
 	align-items: center;
 
@@ -44,49 +30,55 @@
 		min-width: 250px;
 	}
 
-	button {
+	label {
 		display: block;
-		color: base.$font-primary;
-		padding: 10px 20px;
-		border: none;
-		border-radius: 5px;
-		font-size: 18px;
-		background-color: base.$accents;
-
-		&:hover, &:focus	 {
-			opacity: 0.8;
-			cursor: pointer;
-		}
 	}
 }
 
 .results {
-	h2 {
-		font-size: 24px;
-		text-align: center;
+	display: grid;
+	padding: 20px 15px 40px 15px;
+	gap: 15px;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	background-image: url(../../assets/cool-background.png);
+
+	.heading2 {
+		border-bottom: 2px double base.$base-color;
+	}
+
+	p {
+		background-color: rgba(base.$font-secondary, 0.8);
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	span {
+		color: base.$base-light;
 	}
 }
 
-.results-interpretation {
+.info {
 	background-color: base.$base-light;
-	padding: 10px;
 	color: base.$font-secondary;
-}
+	padding: 10px;
+	border-radius: 10px;
 
-/*Typography */
-.hero {
-	margin: 10px 0 15px 0;
-	background: url(../../assets/pexels-rovenimagescom-949587.jpg);
-	// background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	padding: 30px 0;
-
-	h1 {
-		font-size: 48px;
-		font-weight: 700;
-		text-align: center;
-		margin-bottom: 20px;
-		padding: 10px;
+	.measurement-container {
+		display: grid;
+		gap: 10px;
+		margin-bottom: 10px;
+	
+		.measurement {
+			font-weight: 700;
+			margin-top: 20px;
+		}
+	
+		.interpretation {
+		}
+	
+		ul {
+		}
 	}
 }
