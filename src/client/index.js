@@ -1,4 +1,4 @@
-import { checkForName } from './js/lib';
+import { checkForName, updateResults } from './js/lib';
 import { handleSubmit } from './js/handlers';
 
 import './styles/reset.scss';
@@ -13,5 +13,4 @@ form.addEventListener('submit', handleSubmit);
 console.log('it works!');
 
 // export all js files to the output (Client) library
-
-export { checkForName, handleSubmit };
+export { checkForName, handleSubmit, updateResults };

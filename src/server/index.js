@@ -1,7 +1,10 @@
-// import { json as mockAPIResponse } from './mock-api.js'; - would need type: module in package.json 
+// import { json as mockAPIResponse } from './mock-api.js'; - would need type: module in package.json
 const path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mock-api.js');
+const dotenv = require('dotenv');
+dotenv.config();
+const apiKey = process.env.API_KEY;
 
 const app = express();
 

@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+$base-color: #c56000;
+$border-dark: rgba($base-color, 0.88);
+$base-light: #ffc046; 
+$font-primary: #ffffff;
+$font-secondary: #1b1b1b; 
+$accents: #e65100;
+
+
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+	background-color: $base-color;
+    color: $font-primary;
+	min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
-main {
-    flex: 2;
-}
 
-section {
-    max-width: 800px;
-    margin: 50px auto;
-}

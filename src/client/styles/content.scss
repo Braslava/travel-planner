@@ -1,0 +1,92 @@
+@use 'base';
+
+.app {
+	display: grid;
+	gap: 10px;
+}
+
+.container {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.measurement-container {
+	display: grid;
+	gap: 10px;
+
+	.measurement {
+		font-weight: 700;
+		margin-top: 20px;
+	}
+
+	.interpretation {
+		font-size: 14px;
+	}
+
+	ul {
+		font-size: 14px;
+	}
+}
+
+.app__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	input {
+		display: block;
+		padding: 8px;
+		margin-bottom: 10px;
+		border: none;
+		border-radius: 5px;
+		min-width: 250px;
+	}
+
+	button {
+		display: block;
+		color: base.$font-primary;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		font-size: 18px;
+		background-color: base.$accents;
+
+		&:hover, &:focus	 {
+			opacity: 0.8;
+			cursor: pointer;
+		}
+	}
+}
+
+.results {
+	h2 {
+		font-size: 24px;
+		text-align: center;
+	}
+}
+
+.results-interpretation {
+	background-color: base.$base-light;
+	padding: 10px;
+	color: base.$font-secondary;
+}
+
+/*Typography */
+.hero {
+	margin: 10px 0 15px 0;
+	background: url(../../assets/pexels-rovenimagescom-949587.jpg);
+	// background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 30px 0;
+
+	h1 {
+		font-size: 48px;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 20px;
+		padding: 10px;
+	}
+}
