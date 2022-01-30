@@ -1,12 +1,3 @@
-export function checkForName(inputText) {
-	console.log('::: Running checkForName :::', inputText);
-	let names = ['Picard', 'Janeway', 'Kirk', 'Archer', 'Georgiou'];
-
-	if (names.includes(inputText)) {
-		alert('Welcome, Captain!');
-	}
-}
-
 export function updateResults(polarity, agreement, confidence, irony, subjectivity) {
 	const polarityScore = document.querySelector('#polarity');
 	const agreementScore = document.querySelector('#agreement');
