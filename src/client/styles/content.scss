@@ -39,7 +39,7 @@
 	display: grid;
 	padding: 20px 15px 40px 15px;
 	gap: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 35px;
 	border-radius: 10px;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	background-image: url(../../assets/cool-background.png);
@@ -60,25 +60,26 @@
 }
 
 .info {
-	background-color: base.$base-light;
+	background-color: rgba(base.$base-light, 1);
 	color: base.$font-secondary;
-	padding: 25px 20px 15px;
+	padding: 35px 25px 15px;
+	box-shadow: 0 0 3px 5px rgba(0,0,0,0.08653);
 	border-radius: 10px;
 
-	.measurement-container {
+	.wrapper {
 		display: grid;
-		gap: 10px;
-		margin-bottom: 10px;
+		gap: 8px;
+		margin-bottom: 20px;
 
 		.measurement {
 			font-weight: 700;
-			margin-top: 20px;
 		}
 
 		.interpretation {
 		}
 
 		ul {
+			list-style: square inside;
 		}
 	}
 }
