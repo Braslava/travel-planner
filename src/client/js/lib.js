@@ -1,4 +1,4 @@
-
+import { wait } from './helpers';
 
 export async function getAnalysis(urlToAnalyze) {
 	const base = 'https://api.meaningcloud.com/sentiment-2.1';
@@ -28,4 +28,9 @@ export async function updateResults(data) {
 	confidenceScore.innerText = data.confidence;
 	ironyScore.innerText = data.irony;
 	subjectivityScore.innerText = data.subjectivity;
+}
+
+export async function resetForm(formToReset) {
+	await wait();
+	formToReset.reset();
 }

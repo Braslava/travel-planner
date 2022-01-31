@@ -62,22 +62,22 @@
 .info {
 	background-color: base.$base-light;
 	color: base.$font-secondary;
-	padding: 10px;
+	padding: 25px 20px 15px;
 	border-radius: 10px;
 
 	.measurement-container {
 		display: grid;
 		gap: 10px;
 		margin-bottom: 10px;
-	
+
 		.measurement {
 			font-weight: 700;
 			margin-top: 20px;
 		}
-	
+
 		.interpretation {
 		}
-	
+
 		ul {
 		}
 	}

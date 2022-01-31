@@ -1,4 +1,4 @@
-import { getAnalysis, updateResults } from './lib';
+import { getAnalysis, updateResults, resetForm } from './lib';
 import { form } from './elements';
 
 export async function handleSubmit(event) {
@@ -16,5 +16,9 @@ export async function handleSubmit(event) {
 	// get data from the MeaningCloud API
 	getAnalysis(newsUrl)
 		.then((data) => updateResults(data))
-		.then(form.reset());
+		.then(() => resetForm(form));
 }
+
+
+
+
