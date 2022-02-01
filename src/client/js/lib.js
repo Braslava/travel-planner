@@ -1,16 +1,20 @@
 import { wait } from './helpers';
 
-export async function getAnalysis(urlToAnalyze) {
-	const base = 'https://api.meaningcloud.com/sentiment-2.1';
-	//https://api.meaningcloud.com/sentiment-2.1?key=API_KEY&of=json&url=<URL_INPUT>&lang=en
-	const apiKey = process.env.API_KEY;
-	const url = `${base}?key=${apiKey}&lang=auto&url=${urlToAnalyze}`;
+export async function postData(url = '', data = {}) {
+	const response = await fetch(url, {
+		method: 'POST',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		// Body data type must match "Content-Type" header
+		body: JSON.stringify(data),
+	});
 
 	try {
-		const response = await fetch(url);
-		const data = await response.json();
-		console.log(data);
-		return data;
+		const newData = await response.json();
+		console.log(newData);
+		return newData;
 	} catch (error) {
 		console.log('error', error);
 	}
