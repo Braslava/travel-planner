@@ -2,7 +2,6 @@ const port = 5000;
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
-// const axios = require('axios');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -13,7 +12,6 @@ console.log(__dirname);
 
 app.use(cors());
 
-// designates what port the app will listen to for incoming requests
 app.listen(port, () => {
 	console.log(`Server running on port ${port}!`);
 	console.log(`Running on http://localhost:${port}/`);

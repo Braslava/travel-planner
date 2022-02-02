@@ -7,12 +7,14 @@ $font-primary: #ffffff;
 $font-secondary: #1b1b1b; 
 $accents: #e65100;
 
+$layout-breakpoint: 890px;
 
 body {
 	background-color: $base-color;
     color: $font-primary;
 	min-height: 100vh;
     font-family: 'Roboto', sans-serif;
+	font-size: 16px;
 }
 
 .container {
