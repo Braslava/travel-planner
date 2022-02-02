@@ -2,18 +2,18 @@
 
 $base-color: #c56000;
 $border-dark: rgba($base-color, 0.88);
-$base-light: #ffe773; 
+$base-light: #ffe773;
 $font-primary: #ffffff;
-$font-secondary: #1b1b1b; 
+$font-secondary: #1b1b1b;
 $accents: #e65100;
 
-$layout-breakpoint: 890px;
+$layout-breakpoint: 790px;
 
 body {
 	background-color: $base-color;
-    color: $font-primary;
+	color: $font-primary;
 	min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 }
 
@@ -22,4 +22,15 @@ body {
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
