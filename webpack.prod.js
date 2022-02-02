@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
 	entry: './src/client/index.js',
@@ -15,7 +16,22 @@ module.exports = {
 	},
 	optimization: {
 		minimize: true,
-		minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+		minimizer: [
+			new TerserPlugin(),
+			new CssMinimizerPlugin(),
+			new ImageMinimizerPlugin({
+				minimizer: {
+					implementation: ImageMinimizerPlugin.imageminMinify,
+					options: {
+						// Lossless optimization with custom option
+						plugins: [
+							['jpegtran', { progressive: true }],
+							['optipng', { optimizationLevel: 5 }],
+						],
+					},
+				},
+			}),
+		],
 	},
 
 	module: {
@@ -40,6 +56,7 @@ module.exports = {
 			},
 		],
 	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/client/views/index.html',
