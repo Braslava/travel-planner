@@ -21,12 +21,14 @@ export async function postData(url = '', data = {}) {
 }
 
 export async function updateResults(data) {
+	// select the results display elements
 	const polarityScore = document.querySelector('#polarity');
 	const agreementScore = document.querySelector('#agreement');
 	const confidenceScore = document.querySelector('#confidence');
 	const ironyScore = document.querySelector('#irony');
 	const subjectivityScore = document.querySelector('#subjectivity');
 
+	// set their content to the received data
 	polarityScore.innerText = data.score_tag;
 	agreementScore.innerText = data.agreement;
 	confidenceScore.innerText = data.confidence;
