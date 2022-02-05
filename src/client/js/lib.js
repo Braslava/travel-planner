@@ -1,4 +1,5 @@
 import { wait } from './helpers';
+const fetch = require('node-fetch');
 
 export async function postData(url = '', data = {}) {
 	const response = await fetch(url, {
@@ -13,7 +14,7 @@ export async function postData(url = '', data = {}) {
 
 	try {
 		const newData = await response.json();
-		console.log(newData);
+		//console.log(newData);
 		return newData;
 	} catch (error) {
 		console.log('error', error);
