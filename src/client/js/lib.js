@@ -1,7 +1,10 @@
 import { wait } from './helpers';
-const fetch = require('node-fetch');
+import { loader } from './elements';
+import { submitButton } from './elements';
 
 export async function postData(url = '', data = {}) {
+	submitButton.classList.add('hidden');
+	loader.classList.remove('hidden');
 	const response = await fetch(url, {
 		method: 'POST',
 		credentials: 'same-origin',
@@ -15,6 +18,8 @@ export async function postData(url = '', data = {}) {
 	try {
 		const newData = await response.json();
 		//console.log(newData);
+		loader.classList.add('hidden');
+		submitButton.classList.remove('hidden');
 		return newData;
 	} catch (error) {
 		console.log('error', error);
@@ -37,7 +42,7 @@ export async function updateResults(data) {
 	subjectivityScore.innerText = data.subjectivity;
 }
 
-	// asynchronous function to reset the form
+// asynchronous function to reset the form
 export async function resetForm(formToReset) {
 	await wait();
 	formToReset.reset();
