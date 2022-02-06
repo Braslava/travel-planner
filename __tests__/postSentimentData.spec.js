@@ -1,7 +1,7 @@
-import { postSentimentData } from '../src/server/index';
+const postSentimentData = require('../src/server/index');
 
 describe('Testing the postSentimentData function', () => {
-	test('postSentimentData function exists', () => {
+	test('postSentimentData function exists and returns something', () => {
 		expect(postSentimentData).toBeDefined();
 	});
 });

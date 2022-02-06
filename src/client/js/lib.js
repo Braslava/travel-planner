@@ -1,9 +1,7 @@
 import { wait } from './helpers';
 import { loader } from './elements';
-import { submitButton } from './elements';
 
 export async function postData(url = '', data = {}) {
-	submitButton.classList.add('hidden');
 	loader.classList.remove('hidden');
 	const response = await fetch(url, {
 		method: 'POST',
@@ -17,9 +15,8 @@ export async function postData(url = '', data = {}) {
 
 	try {
 		const newData = await response.json();
-		//console.log(newData);
+		console.log(newData);
 		loader.classList.add('hidden');
-		submitButton.classList.remove('hidden');
 		return newData;
 	} catch (error) {
 		console.log('error', error);
