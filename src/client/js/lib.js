@@ -30,13 +30,14 @@ export async function updateResults(data) {
 	const subjectivityScore = document.querySelector('#subjectivity');
 
 	// set their content to the received data
-	polarityScore.innerText = data.score_tag;
+	polarityScore.innerText = data.polarity;
 	agreementScore.innerText = data.agreement;
 	confidenceScore.innerText = data.confidence;
 	ironyScore.innerText = data.irony;
 	subjectivityScore.innerText = data.subjectivity;
 }
 
+	// asynchronous function to reset the form
 export async function resetForm(formToReset) {
 	await wait();
 	formToReset.reset();

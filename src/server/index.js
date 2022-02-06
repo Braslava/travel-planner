@@ -23,7 +23,9 @@ app.get('/', (req, res) => {
 	res.sendFile('dist/index.html');
 });
 
-app.post('/analyze', async (req, res) => {
+app.post('/analyze', postSentimentData);
+
+async function postSentimentData(req, res) {
 	userInput = req.body.url;
 	console.log(`user input is ${userInput}`);
 	const apiKey = process.env.API_KEY;
@@ -33,8 +35,17 @@ app.post('/analyze', async (req, res) => {
 	try {
 		const response = await fetch(url);
 		const data = await response.json();
-		res.send(data);
+		// extract the necessary data from the response
+		const sentimentData = {
+			polarity: data.score_tag,
+			agreement: data.agreement,
+			confidence: data.confidence,
+			irony: data.irony,
+			subjectivity: data.subjectivity,
+		};
+		console.log(sentimentData);
+		res.send(sentimentData);
 	} catch (error) {
 		console.error(error);
 	}
-});
+}

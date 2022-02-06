@@ -15,7 +15,7 @@ import { postData } from '../src/client/js/lib';
 // expect(postData(input));
 
 describe('Testing the postData function', () => {
-	test('It should return  a value that is not undefined', () => {
+	test('postData function exists', () => {
 		expect(postData).toBeDefined();
 	});
 
