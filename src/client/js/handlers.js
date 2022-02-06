@@ -1,5 +1,6 @@
 import { postData, updateResults, resetForm } from './lib';
 import { form } from './elements';
+import { handleError } from './lib';
 
 export async function handleSubmit(event) {
 	event.preventDefault();
@@ -17,6 +18,8 @@ export async function handleSubmit(event) {
 	postData('http://localhost:5000/analyze', { url: newsUrl })
 		// update the results using the response data
 		.then((data) => updateResults(data))
+		// control for errrors
+		.catch((error) => handleError(error))
 		// reset the form
 		.then(() => resetForm(form));
 }

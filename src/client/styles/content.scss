@@ -12,7 +12,6 @@
 
 .hero {
 	margin: 20px 0 15px 0;
-	
 }
 
 .app__form {
@@ -32,6 +31,13 @@
 
 	label {
 		display: block;
+	}
+
+	.error-holder {
+		color: red;
+		padding: 5px;
+		background-color: rgba(base.$base-light, 1);
+		border-radius: 5px;
 	}
 }
 

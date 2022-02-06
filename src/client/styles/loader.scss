@@ -1,19 +1,6 @@
 @use 'base';
 
-// .loader {
-// 	z-index: 2;
-// 	position: fixed;
-// 	background: rgba(0, 0, 0, 0.5);
-// 	top: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	left: 0;
-// 	display: grid;
-// 	align-items: center;
-// 	justify-items: center;
-// 	opacity: 0;
-// 	transition: opacity 0.5s;
-// }
+// loader from https://loading.io/css/
 
 .lds-dual-ring {
 	display: inline-block;
