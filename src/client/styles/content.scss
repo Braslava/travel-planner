@@ -4,15 +4,15 @@
 .app {
 	display: grid;
 	gap: 10px;
+	background: url(../../assets/pexels-rovenimagescom-949587-optimized.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 60px 0 40px 0;
 }
 
 .hero {
 	margin: 20px 0 15px 0;
-	background: url(../../assets/pexels-rovenimagescom-949587-optimized.jpg);
-	// background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	padding: 60px 0 40px 0;
+	
 }
 
 .app__form {
@@ -61,7 +61,7 @@
 }
 
 .info {
-	background-color: rgba(base.$base-light, 1);
+	background-color: rgba(base.$base-light, 0.92);
 	color: base.$font-secondary;
 	padding: 50px 55px 20px;
 	box-shadow: 0 0 3px 5px #00000016;
@@ -84,9 +84,6 @@
 			border-radius: 10px;
 			color: base.$font-primary;
 			max-width: 200px;
-		}
-
-		.interpretation {
 		}
 
 		ul {
