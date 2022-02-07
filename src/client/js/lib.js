@@ -1,7 +1,11 @@
 import { wait } from './helpers';
 import { loader } from './elements';
+import { submitButton } from './elements';
 
 export async function postData(url = '', data = {}) {
+	// hide the submit button
+	submitButton.classList.add('hidden');
+	// display a loader while fetching data
 	loader.classList.remove('hidden');
 
 	try {
@@ -20,7 +24,6 @@ export async function postData(url = '', data = {}) {
 	} catch (error) {
 		//handleError(error);
 		console.log('error', error);
-		//loader.classList.add('hidden');
 	}
 }
 
@@ -36,7 +39,10 @@ export async function updateResults(data) {
 // asynchronous function to reset the form
 export async function resetForm(formToReset) {
 	await wait();
+	// hides the loader
 	loader.classList.add('hidden');
+	// show the submit button
+	submitButton.classList.remove('hidden');
 	formToReset.reset();
 }
 
