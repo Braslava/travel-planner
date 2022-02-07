@@ -47,6 +47,6 @@ async function postSentimentData(req, res) {
 		res.send(sentimentData);
 	} catch (error) {
 		console.error(error);
+		res.send(error);
 	}
 }
-
