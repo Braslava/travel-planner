@@ -1,5 +1,7 @@
 # News Sentiment Analysis with MeaningCloud
 
+**A web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites.**
+
 This is a single-page web application which uses [MeaningCloud](https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc) sentiment analysis API to perform qualitative assesment of a user's entered news item.
 
 This project demonstrates the following front end web development skills:
