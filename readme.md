@@ -16,15 +16,16 @@ This project demonstrates the following front end web development skills:
 
 This project is part of Udacity Front End Web Development Nanodegree. The requirements are:
 
--   [ ] Be set up with Webpack, Express, Node, and Sass, and Service Workers
--   [ ] Have separate dev and prod configurations for Webpack
--   [ ] Have the developer environment set up with the Webpack dev server
--   [ ] Have a minimum of one form field
--   [ ] Make one request to the Aylien API
--   [ ] Use Sass for styling
--   [ ] Minify js and styles in the production environment
--   [ ] Response from the API must be added to the view for a user to see
--   [ ] Be able to show content offline
+-   [x] Be set up with Webpack, Express, Node, and Sass, and Service Workers
+-   [x] Have separate dev and prod configurations for Webpack
+-   [x] Have the developer environment set up with the Webpack dev server
+-   [x] Have a minimum of one form field
+-   [x] Make one request to the MeaningCloud API
+-   [x] Use Sass for styling
+-   [x] Minify js and styles in the production environment
+-   [x] Response from the API must be added to the view for a user to see
+-   [x] Be able to show content offline
+        See [project rubric](https://review.udacity.com/#!/rubrics/3626/view) for more.
 
 ## Dependencies
 
