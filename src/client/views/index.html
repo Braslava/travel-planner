@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="nav"></nav>
-    </header>
+    <div class="loader hidden">
+        <div class="lds-dual-ring"></div>
+    </div>
     <section class="app">
         <div class="hero">
             <h1 class="heading--main">News sentiment analysis</h1>
@@ -20,7 +20,6 @@
                 <label for="url">Link to the news item</label>
                 <input placeholder="https://example.com" name="url" minlength="10" type="url" id="news-url">
                 <button type="submit" class="button submit-btn">Evaluate</button>
-                <div class="lds-dual-ring hidden loader"></div>
             </form>
 
         </div>

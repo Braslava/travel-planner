@@ -1,4 +1,16 @@
 // loader from https://loading.io/css/
+@use 'base';
+
+.loader {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 99;
+	background-color: rgba(base.$font-secondary, 0.5);
+}
 
 .lds-dual-ring {
 	display: inline-block;
