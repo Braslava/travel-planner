@@ -1,9 +1,10 @@
-const port = 5000;
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
 require('dotenv').config();
+// enables to get portname from environment variable but use 5000 id there's none
+const port = process.env.PORT || 5000;
 
 const app = express();
 
