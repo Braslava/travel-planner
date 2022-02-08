@@ -20,9 +20,13 @@ app.listen(port, () => {
 
 app.use(express.json({ limit: '1mb' }));
 
+
 app.get('/', (req, res) => {
-	res.sendFile('dist/index.html');
-});
+    res.sendFile('/dist/index.html', { root: __dirname + '/../..' });
+})
+// app.get('/', (req, res) => {
+// 	res.sendFile('dist/index.html');
+// });
 
 app.post('/analyze', postSentimentData);
 
