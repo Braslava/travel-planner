@@ -15,7 +15,7 @@ export async function handleSubmit(event) {
 	console.log(newsUrl);
 	console.log('::: Form Submitted :::');
 	// send the link from the user input to the server via a post request
-	postData('http://localhost:5000/analyze', { url: newsUrl })
+	postData('/analyze', { url: newsUrl })
 		// update the results using the response data
 		.then((data) => updateResults(data))
 		// control for errrors
