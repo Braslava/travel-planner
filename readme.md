@@ -48,7 +48,7 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 ## Production mode
 
 -   Make sure you have run `npm install`.
--   In the terminal, run `npm build-prod` followed by `npm run start`.
+-   In the terminal, run `npm build` followed by `npm run start`.
     The app will run on port 5000.
 
 ## Development mode
@@ -60,7 +60,7 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 
 ## Deploying
 
-This project is deployed at TODO
+This project is deployed at [https://news-evaluation.herokuapp.com/](https://news-evaluation.herokuapp.com/)
 
 ## Testing
 
