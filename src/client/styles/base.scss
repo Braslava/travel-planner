@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Color Theme Swatches in Hex */
-$paleta1-1-hex: #FFBA00;
-$paleta1-2-hex: #5A6080;
-$paleta1-3-hex: #FFEECA;
-$paleta1-4-hex: #BCCEE0;
-$paleta1-5-hex: #405C55;
+$paleta1-1-hex: #ffba00;
+$paleta1-2-hex: #5a6080;
+$paleta1-3-hex: #ffeeca;
+$paleta1-4-hex: #bccee0;
+$paleta1-5-hex: #405c55;
 
 /* Color Theme Swatches in RGBA */
-$paleta1-1-rgba: rgba(255,186,0, 1);
-$paleta1-2-rgba: rgba(90,96,128, 1);
-$paleta1-3-rgba: rgba(255,238,202, 1);
-$paleta1-4-rgba: rgba(188,206,224, 1);
-$paleta1-5-rgba: rgba(64,92,85, 1);
+$paleta1-1-rgba: rgba(255, 186, 0, 1);
+$paleta1-2-rgba: rgba(90, 96, 128, 1);
+$paleta1-3-rgba: rgba(255, 238, 202, 1);
+$paleta1-4-rgba: rgba(188, 206, 224, 1);
+$paleta1-5-rgba: rgba(64, 92, 85, 1);
 
 /* Color Theme Swatches in HSLA, colot theme by Bianca Mazon from https://color.adobe.com/explore */
 $paleta-1: hsla(43, 100, 50, 1);
@@ -30,15 +30,6 @@ body {
 	font-size: 16px;
 }
 
-.container {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 10px;
-	display: flex;
-	flex-direction: column;
-}
-
 .visually-hidden {
 	position: absolute;
 	left: -10000px;
@@ -47,4 +38,3 @@ body {
 	height: 1px;
 	overflow: hidden;
 }
-

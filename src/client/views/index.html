@@ -19,18 +19,31 @@
             <form action="" class="app__form">
                 <label for="location">Where are you going?</label>
                 <input placeholder="Enter a city, e.g. Rome" name="location" minlength="2" type="text" id="location">
+                <label for="departure-date">Enter departure date</label>
+                <input name="departure-date" type="date" id="departure-date">
                 <button type="submit" class="button submit-btn">Create trip</button>
             </form>
-
         </div>
         <div class="container trip">
             <h2 class="heading2">Your trip </h2>
             <div class="results">
-                <p>Polarity: <span id="polarity"></span></p>
-                <p>Agreement: <span id="agreement"></span></p>
-                <p>Confidence: <span id="confidence"></span></p>
-                <p>Irony: <span id="irony"></span></p>
-                <p>Subjectivity: <span id="subjectivity"></span></p>
+                <div class="trip__photo">
+                    <img src="" alt="destination photo">
+                </div>
+                <div class="trip__info">
+                    <h3>Destination: <span class="location-display">location</span></h3>
+                    <p class="leave-date">Departure: <span class="dep-date-display">date</span><p>
+                    <div class="button-wrapper">
+                        <button class="button button--save">Save trip</button>
+                        <button class="button button--remove">Remove trip</button>
+                    </div>
+                    <p class="departure-countdown">[days] left until your trip to [location]!
+                    <p>
+                    <div class="weather-info">
+                        <p class="subheading">Typical weather for the time of your stay </p>
+                        <p id="weather"></p>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -1,13 +1,13 @@
 @use 'base';
 
 .button {
-	display: block;
 	color: base.$paleta-2;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	font-size: 18px;
 	background-color: base.$paleta-1;
+	font-weight: 600;
 
 	&:hover,
 	&:focus {
@@ -16,6 +16,14 @@
 		transition: 0.5s;
 	}
 }
+
+.button--save, .button--remove {
+	width: 120px;
+	padding: 5px 2px;
+	font-size: 16px;
+}
+
+
 
 .heading--main {
 	font-size: 48px;
@@ -29,13 +37,11 @@
 	font-size: 24px;
 	text-align: center;
 	font-weight: 700;
-	color: base.$paleta-3;
 }
 
 .heading3 {
 	font-size: 20px;
 	font-weight: 700;
-	color: base.$paleta-5;
 }
 
 .link {
@@ -47,6 +53,3 @@
 	}
 }
 
-.margin-bottom-20px {
-	margin-bottom: 20px;
-}
