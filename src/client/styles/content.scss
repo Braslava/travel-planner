@@ -4,7 +4,7 @@
 .app {
 	display: grid;
 	gap: 10px;
-	background: url(../../assets/pexels-rovenimagescom-949587-optimized.jpg);
+	background: base.$paleta-3;
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 60px 0 40px 0;
@@ -33,12 +33,18 @@
 		display: block;
 	}
 
-	.error-holder {
-		color: red;
-		padding: 5px;
-		background-color: rgba(base.$base-light, 1);
-		border-radius: 5px;
-	}
+	// .error-holder {
+	// 	color: red;
+	// 	padding: 5px;
+	// 	background-color: rgba(base.$base-light, 1);
+	// 	border-radius: 5px;
+	// }
+}
+
+.container.trip {
+	background-color: rgba(base.$paleta-5, 0.92);
+	box-shadow: 0 0 3px 5px base.$paleta-5;
+	border-radius: 10px;
 }
 
 .results {
@@ -46,54 +52,20 @@
 	padding: 25px 25px 40px 25px;
 	gap: 15px;
 	margin-bottom: 35px;
-	border-radius: 10px;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	background-image: url(../../assets/cool-background.png);
-	box-shadow: 0 0 3px 5px #00000016;
 
 	.heading2 {
-		border-bottom: 2px double base.$base-color;
+		border-bottom: 2px double base.$paleta-1;
 	}
 
 	p {
-		background-color: rgba(base.$font-secondary, 0.8);
+		background-color: rgba(base.$paleta-3, 0.8);
 		padding: 10px;
 		border-radius: 10px;
 	}
 
 	span {
-		color: base.$base-light;
-	}
-}
-
-.info {
-	background-color: rgba(base.$base-light, 0.92);
-	color: base.$font-secondary;
-	padding: 50px 55px 20px;
-	box-shadow: 0 0 3px 5px #00000016;
-	border-radius: 10px;
-	line-height: 130%;
-
-	@media (max-width: base.$layout-breakpoint) {
-		padding: 35px 20px 15px;
-	}
-
-	.wrapper {
-		display: grid;
-		gap: 8px;
-		margin-bottom: 20px;
-
-		.measurement {
-			background-color: rgba(base.$font-secondary, 0.8);
-			padding: 10px;
-			border-radius: 10px;
-			color: base.$font-primary;
-			max-width: 200px;
-		}
-
-		ul {
-			list-style: square inside;
-		}
+		color: base.$paleta-2;
 	}
 }
 

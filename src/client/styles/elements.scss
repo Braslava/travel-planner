@@ -2,12 +2,12 @@
 
 .button {
 	display: block;
-	color: base.$font-primary;
+	color: base.$paleta-2;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: base.$accents;
+	background-color: base.$paleta-1;
 
 	&:hover,
 	&:focus {
@@ -29,17 +29,17 @@
 	font-size: 24px;
 	text-align: center;
 	font-weight: 700;
-	color: base.$font-secondary;
+	color: base.$paleta-3;
 }
 
 .heading3 {
 	font-size: 20px;
 	font-weight: 700;
-	color: base.$font-secondary;
+	color: base.$paleta-5;
 }
 
 .link {
-	color: base.$accents;
+	color: base.$paleta-1;
 
 	&:hover,
 	&:focus {
