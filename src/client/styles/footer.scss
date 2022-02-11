@@ -1,6 +1,9 @@
 @use 'base';
 
 .footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	text-align: center;
 	background-color: base.$paleta-4;
 	padding: 20px 0 10px;
