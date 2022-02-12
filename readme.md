@@ -1,13 +1,13 @@
-# News Sentiment Analysis with MeaningCloud
+# Travel Planner
 
-**A web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites.**
+**A web tool that allows adding travel plans and displays weather information in the destination.**
 
-This is a single-page web application which uses [MeaningCloud](https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc) sentiment analysis API to perform qualitative assesment of a user's entered news item.
+This is a single-page web application which pulls data from 3 APIs - Geonames, Weatherbit, and Pixabay.
 
 This project demonstrates the following front end web development skills:
 
+-   HTML, CSS and SASS
 -   Setting up Webpack
--   Sass styles
 -   Webpack Loaders and Plugins
 -   Creating layouts and page design
 -   Service workers
@@ -16,19 +16,9 @@ This project demonstrates the following front end web development skills:
 
 ## Project Requirements
 
-This project is part of Udacity Front End Web Development Nanodegree. The requirements are:
+This project is part of Udacity Front End Web Development Nanodegree.
 
--   [x] Be set up with Webpack, Express, Node, and Sass, and Service Workers
--   [x] Have separate dev and prod configurations for Webpack
--   [x] Have the developer environment set up with the Webpack dev server
--   [x] Have a minimum of one form field
--   [x] Make one request to the MeaningCloud API
--   [x] Use Sass for styling
--   [x] Minify js and styles in the production environment
--   [x] Response from the API must be added to the view for a user to see
--   [x] Be able to show content offline
-
-See [project rubric](https://review.udacity.com/#!/rubrics/3626/view) for more.
+See [project rubric](https://review.udacity.com/#!/rubrics/3636/view) for more.
 
 ## Dependencies
 
@@ -40,9 +30,9 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 
 2. Run `npm install` in the project folder on your local machine.
 
-3. Sign up for [MeaningCloud account](https://www.meaningcloud.com/developer/create-account). An API key will be accessible in your profile.
+3. Sign up for API keys TODO.
 
-4. Create a `.env` file in the root of your project and paste your API key in it like this:
+4. Create a `.env` file in the root of your project and paste your API keys in it like this:
    `API_KEY=your-api-key`
 
 ## Production mode
@@ -60,7 +50,7 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 
 ## Deploying
 
-This project is deployed at [https://news-evaluation.herokuapp.com/](https://news-evaluation.herokuapp.com/)
+TODO
 
 ## Testing
 
