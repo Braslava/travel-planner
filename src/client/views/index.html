@@ -11,18 +11,18 @@
 
 <body>
     <div class="container--main">
-        <div class="loader hidden">
+        <div class="loader hidden js-loader">
             <div class="lds-dual-ring"></div>
         </div>
         <section class="app">
             <div class="hero">
                 <h1 class="heading--main">Travel Planner</h1>
-                <form action="" class="app__form">
+                <form class="app__form js-form">
                     <label for="location">Where are you going?</label>
-                    <input placeholder="Enter a city, e.g. Rome" name="location" minlength="2" type="text"
+                    <input placeholder="Enter a city, e.g. Rome" required name="location" minlength="2" type="text"
                         id="location">
                     <label for="departure-date">Departure date</label>
-                    <input name="departure-date" type="date" id="departure-date">
+                    <input name="departure-date" required type="date" id="departure-date">
                     <button type="submit" class="button submit-btn">Create trip</button>
                 </form>
             </div>

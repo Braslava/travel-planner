@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 // 	res.sendFile('dist/index.html');
 // });
 
-app.post('/analyze', postSentimentData);
+app.post('/addtrip', postSentimentData);
 
 async function postSentimentData(req, res) {
 	userInput = req.body.url;
