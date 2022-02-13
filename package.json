@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server/index.js",
+    "start": "nodemon src/server/index.js",
     "build": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server --config webpack.dev.js --open"
   },
@@ -21,10 +21,12 @@
   "homepage": "https://github.com/Braslava/news-evaluation-nlp#readme",
   "dependencies": {
     "@babel/runtime": "^7.16.7",
+    "axios": "^0.26.0",
     "cors": "^2.8.5",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "node-fetch": "^2.6.6",
+    "nodemon": "^2.0.15",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2"
   },

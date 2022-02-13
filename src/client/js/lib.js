@@ -1,30 +1,10 @@
 import { wait } from './helpers';
 import { loader } from './elements';
 
-// Select user's form input - location and date
 
-// Convert the location name to latitude and longitude uising Geonames API
-// Send the location to server in a POST request
-
-// Use the latitude and longitude to get weather forecast from Weatherbit
-
-// Calculate how many days away the departure is.
-
-// Check if it is more than 7 days
-
-// If true get current weather forecast
-
-// If false - get future wether forecasst
-
-// If it is more than 16 days away, display weather on day 16th with a note that forecast after date X is not available
-
-// retrieve and image of the location from Pixabay API
-
-// update UI with the location, days until the trip, weather forecast and an image of the destination
 
 export async function postData(url = '', data = {}) {
 	// display a loader while fetching data
-	loader.classList.remove('hidden');
 
 	try {
 		const response = await fetch(url, {
@@ -47,21 +27,32 @@ export async function postData(url = '', data = {}) {
 
 export async function updateResults(data) {
 	// select the results display elements and set their content to the received data
-	document.querySelector('#polarity').innerText = data.polarity;
-	document.querySelector('#agreement').innerText = data.agreement;
-	document.querySelector('#confidence').innerText = data.confidence;
-	document.querySelector('#irony').innerText = data.irony;
-	document.querySelector('#subjectivity').innerText = data.subjectivity;
+	document.querySelector(
+		'.js-departure-countdown'
+	).innerText = `[days] left until your trip to [location]!`;
+	document.querySelector('.js-weather-display').innerText = `${data.weather}`;
+	document.querySelector('.js-location-display').innerText = data.location;
+	document.querySelector('.js-dep-date-display').innerText =
+		data.departureDate;
+	document.querySelector('.js-destination-image').src = data.image;
 }
 
 // asynchronous function to reset the form
 export async function resetForm(formToReset) {
 	await wait();
 	// hides the loader
-	loader.classList.add('hidden');
+	hideLoader();
 	formToReset.reset();
 }
 
 export function handleError(error) {
 	alert('There was an error processing this request.', error);
+}
+
+function showLoader() {
+	loader.classList.remove('hidden');
+}
+
+function hideLoader() {
+	loader.classList.add('hidden');
 }

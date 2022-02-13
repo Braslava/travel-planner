@@ -1,10 +1,12 @@
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
+const axios = require('axios');
+//const fetch = require('node-fetch');
 require('dotenv').config();
 // enables to get portname from environment variable but use 5000 id there's none
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
+const data = {};
 
 const app = express();
 
@@ -20,38 +22,65 @@ app.listen(port, () => {
 
 app.use(express.json({ limit: '1mb' }));
 
-
 app.get('/', (req, res) => {
-    res.sendFile('/dist/index.html', { root: __dirname + '/../..' });
-})
+	res.sendFile('/dist/index.html', { root: __dirname + '/../..' });
+});
 // app.get('/', (req, res) => {
 // 	res.sendFile('dist/index.html');
 // });
 
-app.post('/addtrip', postSentimentData);
+app.post('/addtrip', createTrip);
 
-async function postSentimentData(req, res) {
-	userInput = req.body.url;
-	console.log(`user input is ${userInput}`);
-	const apiKey = process.env.API_KEY;
-	const base = 'https://api.meaningcloud.com/sentiment-2.1';
-	const url = `${base}?key=${apiKey}&lang=auto&url=${userInput}`;
+async function createTrip(req, res) {
+	location = req.body.location;
+	startDate = req.body.startDate;
+	console.log(`user input is ${location} and ${startDate}`);
+	const geoNamesUser = process.env.GEONAMES_USER;
+	const weatherBitApiKey = process.env.WEATHERBIT_API_KEY;
 
+	const coordinates = await getDataFromGeoNames(geoNamesUser, location);
+
+	const weather = await getWeather(
+		coordinates.lat,
+		coordinates.lon,
+		weatherBitApiKey
+	);
+
+	console.log(weather);
+	console.log(coordinates);
+	//	res.send(weather);
+}
+
+async function getDataFromGeoNames(username, city) {
+	console.log('called');
+	const url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
 	try {
-		const response = await fetch(url);
-		const data = await response.json();
-		// extract the necessary data from the response
-		const sentimentData = {
-			polarity: data.score_tag,
-			agreement: data.agreement,
-			confidence: data.confidence,
-			irony: data.irony,
-			subjectivity: data.subjectivity,
-		};
-		console.log(sentimentData);
-		res.send(sentimentData);
-	} catch (error) {
-		console.error(error);
-		res.send(error);
+		return await axios.get(url).then((res) => {
+			console.log(res.data.geonames[0].lat, res.data.geonames[0].lng);
+			return {
+				lat: res.data.geonames[0].lat,
+				lon: res.data.geonames[0].lng,
+			};
+		});
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+async function getWeather(lat, lon, apiKey, timing = 0) {
+	const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${apiKey}`;
+	console.log(lat, lon);
+	try {
+		return await axios.get(url).then((res) => {
+			console.log(res.data);
+			const weatherData = {
+				temperature: res.data.data[timing].temp,
+				description: res.data.data[timing].weather.description,
+			};
+			console.log(weatherData);
+			return weatherData;
+		});
+	} catch (e) {
+		console.log(e);
 	}
 }

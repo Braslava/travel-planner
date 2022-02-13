@@ -5,3 +5,4 @@ export const loader = document.querySelector('.js-loader');
 // slect save trip button
 
 // select remove trip button
+export const removeTripButton = document.querySelector('.js-remove-button');

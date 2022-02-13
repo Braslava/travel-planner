@@ -30,21 +30,20 @@
                 <h2 class="heading2">Your trip </h2>
                 <div class="trip-info__results">
                     <div class="trip__photo">
-                        <img src="https://picsum.photos/250/200" alt="destination photo">
+                        <img class="js-destination-image" src="https://picsum.photos/250/200" alt="destination photo">
                     </div>
-                    <div class="trip__info">
-                        <h3>Destination: <span class="location-display">location</span></h3>
-                        <p class="leave-date">Departure: <span class="dep-date-display">date</span>
+                    <div class="trip-details">
+                        <h3>Destination: <span class="js-location-display">location</span></h3>
+                        <p class="leave-date">Departure: <span class="js-dep-date-display">date</span>
                         <p>
                         <div class="button-wrapper">
                             <button class="button button--save">Save trip</button>
-                            <button class="button button--remove">Remove trip</button>
+                            <button class="button button--remove js-remove-button">Remove trip</button>
                         </div>
-                        <p class="departure-countdown">[days] left until your trip to [location]!
-                        <p>
+                        <p class="departure-countdown js-departure-countdown">Days until the trip<p>
                         <div class="weather-info">
                             <p class="subheading">Typical weather for the time of your stay </p>
-                            <p id="weather"></p>
+                            <p class="js-weather-display">Cloudy, 17 degrees</p>
                         </div>
                     </div>
                 </div>
