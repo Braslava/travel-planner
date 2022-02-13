@@ -1,9 +1,11 @@
 @use 'base';
 
 .footer {
+	display: flex;
+	flex-direction: column;
 	text-align: center;
 	background-color: base.$paleta-4;
-	padding: 20px 0 10px;
+	padding: 40px 0 20px;
 
 	a {
 		color: base.$paleta-5;

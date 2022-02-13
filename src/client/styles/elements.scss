@@ -1,28 +1,31 @@
 @use 'base';
 
 .button {
-	color: base.$paleta-3;
-	padding: 10px 20px;
 	border: none;
+	font-size: 1em;
+	color: base.$paleta-3;
+	padding: 1em 3em;
 	border-radius: 5px;
-	font-size: 18px;
-	background-color: base.$paleta-2;
+	background-color: base.$paleta-5;
+	border: 1px solid base.$paleta-5;
 
 	&:hover,
 	&:focus {
-		opacity: 0.8;
+		background-color: base.$paleta-2;
+		color: base.$paleta-1;
+		border: 1px solid base.$paleta-1;
 		cursor: pointer;
 		transition: 0.5s;
 	}
 }
 
-.button--save, .button--remove {
-	width: 120px;
-	padding: 5px 2px;
-	font-size: 16px;
+.button--save,
+.button--remove {
+	background-color: base.$paleta-3;
+	color: base.$paleta-5;
+	padding: 0.5em 1em;
+	min-width: 120px;
 }
-
-
 
 .heading--main {
 	font-size: 48px;
@@ -30,7 +33,7 @@
 	text-align: center;
 	margin-bottom: 20px;
 	padding: 10px;
-	text-shadow: 1px 1px 0 rgba(0,0,0,0.2);;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .heading2 {
@@ -52,4 +55,3 @@
 		text-decoration: underline;
 	}
 }
-
