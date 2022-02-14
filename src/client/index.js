@@ -8,6 +8,8 @@ import './styles/footer.scss';
 import './styles/content.scss';
 
 
+
+
 form.addEventListener('submit', handleSubmit);
 
 // if ('serviceWorker' in navigator) {

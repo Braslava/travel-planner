@@ -1,8 +1,6 @@
 import { wait } from './helpers';
 import { loader } from './elements';
 
-
-
 export async function postData(url = '', data = {}) {
 	// display a loader while fetching data
 
@@ -55,4 +53,21 @@ function showLoader() {
 
 function hideLoader() {
 	loader.classList.add('hidden');
+}
+
+// calculate days betwwn current date and start of the trip
+export function checkHowLongAway(dateInputValue) {
+	const today = new Date();
+	// create a date object from the html input value
+	const startDate = new Date(dateInputValue);
+	console.log('startdate ' + startDate);
+	// convert to ms, subtract and then convert back to days and round up
+	const days = Math.ceil(
+		(startDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
+	);
+	if (days < 0) {
+		alert('Your departure date cannot be in the past!')
+		//throw new Error('Departure date in the past!');
+	}
+	return days;
 }
