@@ -69,17 +69,16 @@
 		color: base.$paleta-1;
 	}
 
-	// img {
-	// 	position: absolute;
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	left: 0;
-	// 	top: 0;
-	// 	border: none;
-	// 	overflow: hidden;
-	// 	object-fit: cover;
-	// 	object-position: center;
-	// }
+	img {
+		width: 100%;
+		max-width: 300px;
+		left: 0;
+		top: 0;
+		border: none;
+		overflow: hidden;
+		object-fit: cover;
+		object-position: center;
+	}
 
 	@media (min-width: base.$layout-breakpoint-small) {
 		grid-template-columns: auto 1fr;

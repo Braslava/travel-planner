@@ -29,9 +29,9 @@ app.get('/', (req, res) => {
 // 	res.sendFile('dist/index.html');
 // });
 
-app.post('/addtrip', createTrip);
+app.post('/addtrip', createTripData);
 
-async function createTrip(req, res) {
+async function createTripData(req, res) {
 	const location = req.body.location;
 	const startDate = req.body.startDate;
 	const daysUntilTrip = req.body.daysUntilTrip;
@@ -51,10 +51,6 @@ async function createTrip(req, res) {
 
 	const destinationImageUrl = await getImage(pixabayApiKey, location);
 
-	console.log(weather);
-	console.log(coordinates);
-	console.log(destinationImageUrl);
-
 	data.weatherInfo = weather;
 	data.destinationImageUrl = destinationImageUrl;
 	res.send(data);
@@ -64,10 +60,15 @@ async function getDataFromGeoNames(username, city) {
 	const url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
 	try {
 		return await axios.get(url).then((res) => {
-			console.log(res.data.geonames[0].lat, res.data.geonames[0].lng);
+			console.log(
+				res.data.geonames[0].lat,
+				res.data.geonames[0].lng,
+				res.data.geonames[0].countryName
+			);
 			return {
 				lat: res.data.geonames[0].lat,
 				lon: res.data.geonames[0].lng,
+				country: res.data.geonames[0].countryName,
 			};
 		});
 	} catch (e) {
@@ -103,7 +104,6 @@ async function getImage(apiKey, searchWord) {
 		return await axios.get(url).then((res) => {
 			console.log(res.data.hits[0]);
 			const photoUrl = res.data.hits[0].webformatURL;
-			console.log(photoUrl);
 			return photoUrl;
 		});
 	} catch (e) {
