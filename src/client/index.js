@@ -1,4 +1,4 @@
-import { handleSubmit } from './js/handlers';
+import { handleSubmit, removeTrip } from './js/handlers';
 import { form } from './js/elements';
 
 import './styles/reset.scss';

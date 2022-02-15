@@ -6,7 +6,6 @@
 	flex-direction: column;
 	background-color: rgba(base.$paleta-5, 0.88);
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	padding: 30px 15px 25px 15px;
 
 	.heading2 {
 		color: base.$paleta-1;
@@ -16,7 +15,7 @@
 
 .trip-card {
 	display: grid;
-	padding: 10px;
+	padding: 40px 25px 35px 25px;
 	gap: 15px;
 	grid-template-rows: auto 1fr;
 	color: base.$paleta-3;
@@ -36,6 +35,7 @@
 	img {
 		width: 100%;
 		max-width: 300px;
+		margin-bottom: 8px;
 		overflow: hidden;
 		object-fit: cover;
 		object-position: center;
@@ -56,6 +56,10 @@
 
 		h2 {
 			text-align: left;
+		}
+
+		img {
+			margin-bottom: 0;
 		}
 	}
 }

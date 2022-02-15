@@ -4,7 +4,7 @@ import {
 	resetForm,
 	checkHowLongAway,
 } from './lib';
-import { form } from './elements';
+import { form, upcomingTripDisplay } from './elements';
 import { handleError } from './lib';
 
 export async function handleSubmit(event) {
@@ -12,7 +12,7 @@ export async function handleSubmit(event) {
 	// select the location from the user input
 	const destinationName = form.querySelector('#location').value.trim();
 	const utlEncodedDestination = encodeURIComponent(destinationName);
-	const startDate = form.querySelector('#departure-date').value.trim();
+	const startDate = form.querySelector('#departure-date').value;
 	const daysUntilTrip = checkHowLongAway(startDate);
 
 	console.log(destinationName, startDate);
@@ -39,4 +39,12 @@ export async function handleSubmit(event) {
 		)
 		.catch((error) => handleError(error))
 		.then(() => resetForm(form));
+}
+
+export function removeTrip(e) {
+	console.log('removing');
+	console.log(e.target);
+	console.log(e.currentTarget);
+	console.log(upcomingTripDisplay.firstChild);
+	upcomingTripDisplay.removeChild(upcomingTripDisplay.querySelector('.trip-card'));
 }
