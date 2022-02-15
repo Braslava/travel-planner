@@ -35,3 +35,25 @@ body {
 	align-items: center;
 	min-height: 100vh;
 }
+
+.app {
+	display: grid;
+	gap: 10px;
+	padding: 60px 15px 50px 15px;
+	justify-content: center;
+}
+
+// helper classes
+
+.hidden {
+	display: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}

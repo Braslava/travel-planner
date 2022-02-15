@@ -37,5 +37,5 @@ export async function handleSubmit(event) {
 			)
 		)
 		.catch((error) => handleError(error))
-	.then(() => resetForm(form));
+		.then(() => resetForm(form));
 }

@@ -6,7 +6,7 @@ const axios = require('axios');
 require('dotenv').config();
 // enables to get portname from environment variable but use 3000 if there's none
 const port = process.env.PORT || 3000;
-const data = {};
+const tripData = {};
 
 const app = express();
 
@@ -32,28 +32,46 @@ app.get('/', (req, res) => {
 app.post('/addtrip', createTripData);
 
 async function createTripData(req, res) {
+	//const tripData = {};
+	// extracting data from the request body
 	const location = req.body.location;
 	const startDate = req.body.startDate;
 	const daysUntilTrip = req.body.daysUntilTrip;
-	console.log(`user input is ${location} and ${startDate}`);
+	console.log(
+		`user input is ${location} and ${startDate} and their trip is in ${daysUntilTrip} days`
+	);
+	// accessing API keys
 	const geoNamesUser = process.env.GEONAMES_USER;
 	const weatherBitApiKey = process.env.WEATHERBIT_API_KEY;
 	const pixabayApiKey = process.env.PIXABAY_API_KEY;
 
-	const coordinates = await getDataFromGeoNames(geoNamesUser, location);
+	// fetching latitude, longitude and countryname of the deestination
+	const geoNamesData = await getDataFromGeoNames(geoNamesUser, location);
 
-	const weather = await getWeather(
-		coordinates.lat,
-		coordinates.lon,
+	// fetching weather data - temperature and description
+	const weatherInfo = await getWeather(
+		geoNamesData.lat,
+		geoNamesData.lon,
 		weatherBitApiKey,
 		daysUntilTrip
 	);
 
-	const destinationImageUrl = await getImage(pixabayApiKey, location);
+	// fetching an image of the location but if none retrieved use the country from geonames data as a search term
+	let destinationImageUrl = await getImage(pixabayApiKey, location);
+	if (!destinationImageUrl) {
+		destinationImageUrl = await getImage(
+			pixabayApiKey,
+			geoNamesData.country
+		);
+	}
 
-	data.weatherInfo = weather;
-	data.destinationImageUrl = destinationImageUrl;
-	res.send(data);
+	// assigning the data to the object that is sent in response
+	tripData.weatherInfo = weatherInfo;
+	tripData.destinationImageUrl = destinationImageUrl;
+	tripData.country = geoNamesData.country;
+	//data.push(tripData);
+	res.send(tripData);
+	console.log(tripData);
 }
 
 async function getDataFromGeoNames(username, city) {
@@ -99,7 +117,6 @@ async function getWeather(lat, lon, apiKey, day) {
 
 async function getImage(apiKey, searchWord) {
 	const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchWord}&image_type=photo`;
-	console.log(url);
 	try {
 		return await axios.get(url).then((res) => {
 			console.log(res.data.hits[0]);

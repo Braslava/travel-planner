@@ -1,0 +1,44 @@
+@use 'base';
+@use 'elements';
+
+.trip-info__results {
+	display: grid;
+	padding: 10px;
+	gap: 15px;
+	grid-template-rows: auto 1fr;
+	color: base.$paleta-3;
+	justify-items: center;
+
+	span {
+		color: base.$paleta-1;
+	}
+
+	img {
+		width: 100%;
+		max-width: 300px;
+		left: 0;
+		top: 0;
+		border: none;
+		overflow: hidden;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	@media (min-width: base.$layout-breakpoint-small) {
+		grid-template-columns: auto 1fr;
+	}
+}
+
+.trip-details {
+	display: grid;
+	gap: 10px;
+	width: 100%;
+	justify-content: stretch;
+}
+
+.button-wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	justify-content: center;
+}

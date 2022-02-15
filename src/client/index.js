@@ -5,7 +5,8 @@ import './styles/reset.scss';
 import './styles/loader.scss';
 import './styles/base.scss';
 import './styles/footer.scss';
-import './styles/content.scss';
+import './styles/trip-creator.scss';
+import './styles/trip-card.scss';
 
 
 
