@@ -29,6 +29,7 @@ export async function handleSubmit(event) {
 		.then((data) =>
 			updateTripDisplay(
 				destinationName,
+				data.country,
 				daysUntilTrip,
 				startDate,
 				data.destinationImageUrl,

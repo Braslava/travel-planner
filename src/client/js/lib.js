@@ -26,6 +26,7 @@ export async function postData(url = '', data = {}) {
 
 export async function updateTripDisplay(
 	destination,
+	country,
 	daysUntilTrip,
 	departureDate,
 	imageUrl,
@@ -39,7 +40,9 @@ export async function updateTripDisplay(
 	document.querySelector(
 		'.js-weather-display'
 	).innerText = `${weatherDescription} and ${temperature} degress`;
-	document.querySelector('.js-location-display').innerText = destination;
+	document.querySelector(
+		'.js-location-display'
+	).innerText = `${destination}, ${country}`;
 	document.querySelector('.js-dep-date-display').innerText = departureDate;
 	document.querySelector('.js-destination-image').src = imageUrl;
 }
