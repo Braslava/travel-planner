@@ -2,6 +2,8 @@ import { wait } from './helpers';
 import { loader } from './elements';
 import { upcomingTripDisplay } from './elements';
 import { removeTrip } from './handlers';
+// imports the DOMpurify library
+import DOMPurify from 'dompurify';
 
 export async function postData(url = '', data = {}) {
 	// display a loader while fetching data
@@ -89,9 +91,10 @@ export async function updateTripDisplay(
 	</div>
 	`;
 
+	const sanitizedTripHtml = DOMPurify.sanitize(tripHtml);
 	const htmlFragment = document
 		.createRange()
-		.createContextualFragment(tripHtml);
+		.createContextualFragment(sanitizedTripHtml);
 
 	upcomingTripDisplay.appendChild(htmlFragment);
 
