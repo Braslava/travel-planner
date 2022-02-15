@@ -19,8 +19,7 @@
 	}
 }
 
-.button--save,
-.button--remove {
+.button--secondary {
 	background-color: base.$paleta-3;
 	color: base.$paleta-5;
 	padding: 0.5em 1em;
@@ -36,16 +35,6 @@
 	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-.heading2 {
-	font-size: 24px;
-	text-align: center;
-	font-weight: 700;
-}
-
-.heading3 {
-	font-size: 20px;
-	font-weight: 700;
-}
 
 .link {
 	color: base.$paleta-1;

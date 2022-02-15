@@ -6,7 +6,7 @@ import './styles/loader.scss';
 import './styles/base.scss';
 import './styles/footer.scss';
 import './styles/trip-creator.scss';
-import './styles/trip-card.scss';
+import './styles/trips.scss';
 
 
 
