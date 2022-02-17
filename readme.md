@@ -39,13 +39,13 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 
 -   Make sure you have run `npm install`.
 -   In the terminal, run `npm build` followed by `npm run start`.
-    The app will run on port 5000.
+    The app will run on port 3000.
 
 ## Development mode
 
 -   Make sure you have run `npm install`.
 -   In the terminal, run `npm build-dev`.
--   Open up a second terminal window and execute `npm run start` (this is needed to execute the API request on the server side).
+-   Open up a second terminal window and execute `npm run start` (this is needed to execute the API requests on the server side).
 -   The app will automatically launch on Webpack Devserver on port 8080.
 
 ## Deploying

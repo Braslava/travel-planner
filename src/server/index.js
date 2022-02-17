@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.post('/addtrip', createTripData);
 
 async function createTripData(req, res) {
-	//const tripData = {};
+	const tripData = {};
 	// extracting data from the request body
 	const location = req.body.location;
 	const startDate = req.body.startDate;
@@ -55,6 +55,7 @@ async function createTripData(req, res) {
 		weatherBitApiKey,
 		daysUntilTrip
 	);
+	console.log(weatherInfo);
 
 	// fetching an image of the location but if none retrieved use the country from geonames data as a search term
 	let destinationImageUrl = await getImage(pixabayApiKey, location);

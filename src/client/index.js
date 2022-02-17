@@ -1,6 +1,3 @@
-import { handleSubmit, removeTrip } from './js/handlers';
-import { form } from './js/elements';
-
 import './styles/reset.scss';
 import './styles/loader.scss';
 import './styles/base.scss';
@@ -8,10 +5,9 @@ import './styles/footer.scss';
 import './styles/trip-creator.scss';
 import './styles/trips.scss';
 
+import { initializeApp } from './js/initialize';
 
-
-
-form.addEventListener('submit', handleSubmit);
+window.addEventListener('load', initializeApp);
 
 // if ('serviceWorker' in navigator) {
 // 	window.addEventListener('load', () => {
