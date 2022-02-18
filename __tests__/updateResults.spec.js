@@ -1,14 +1,14 @@
 /**
  * @jest-environment jsdom
  */
-import { updateResults } from '../src/client/js/lib';
+import { createTripCard } from '../src/client/js/lib';
 
 describe('Testing the updateReults function', () => {
 	test('updateReulsts function exists', () => {
-		expect(updateResults).toBeDefined();
+		expect(createTripCard).toBeDefined();
 	});
 
-	test('the function updates UI', () => {
+	test('the function creates a div with trip details in the trips section', () => {
 		document.body.innerHTML = `
         <div class="results">
                 <h2 class="heading2">Results </h2>

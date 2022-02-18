@@ -1,13 +1,18 @@
 @use 'base';
 @use 'elements';
 
-
-
 .trip-creator {
 	margin: 20px 0 15px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	.heading--main {
 		color: base.$paleta-2;
+	}
+
+	img {
+		max-width: 250px;
 	}
 }
 
@@ -37,6 +42,3 @@
 		display: block;
 	}
 }
-
-
-

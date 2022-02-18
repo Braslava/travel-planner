@@ -9,5 +9,5 @@ export const trips = [];
 
 export function initializeApp() {
 	form.addEventListener('submit', handleSubmit);
-	upcomingTripDisplay.addEventListener('click', removeTrip);
+	upcomingTripDisplay.addEventListener('click', (e) => removeTrip(e, trips));
 }
