@@ -15,12 +15,13 @@
 
 .trip-card {
 	display: grid;
-	padding: 20px 25px 15px 25px;
+	padding: 23px 25px 10px 25px;
 	gap: 15px;
 	grid-template-rows: auto 1fr;
 	color: base.$paleta-3;
 	justify-items: center;
 	align-items: center;
+	border-bottom: 1px dashed base.$paleta-3;
 
 	h2 {
 		font-size: 22px;
@@ -53,6 +54,15 @@
 			max-width: 200px;
 			align-self: flex-end;
 		}
+	}
+
+	&:first-child {
+		padding-top: 35px;
+	}
+	
+	&:last-child {
+		padding-bottom: 40px;
+		border-bottom: none;
 	}
 
 	@media (min-width: base.$layout-breakpoint-small) {

@@ -1,4 +1,4 @@
-const path = require('path');
+//const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
@@ -6,7 +6,6 @@ const axios = require('axios');
 require('dotenv').config();
 // enables to get portname from environment variable but use 3000 if there's none
 const port = process.env.PORT || 3000;
-const tripData = {};
 
 const app = express();
 
