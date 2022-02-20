@@ -26,6 +26,8 @@ export function checkHowLongAway(dateInputValue) {
 // function that
 export const createTripData = async (destinationName, startDate) => {
 	const daysUntilTrip = checkHowLongAway(startDate);
+	// make sure to use absolute path in postData when working in development mode because the dev server runs on a different port
+	// use '/addtrip' in production mode
 	try {
 		const retrievedTripData = await postData(
 			'http://localhost:3000/addtrip',

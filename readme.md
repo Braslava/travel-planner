@@ -30,15 +30,17 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 
 2. Run `npm install` in the project folder on your local machine.
 
-3. Sign up for API keys TODO.
+3. Sign up for API keys form [GeoNames](http://www.geonames.org/export/web-services.html), [Weatherbit](https://www.weatherbit.io/), and [Pixabay](https://pixabay.com/api/docs/).
 
 4. Create a `.env` file in the root of your project and paste your API keys in it like this:
-   `API_KEY=your-api-key`
+   `GEONAMES_USER = ********
+    WEATHERBIT_API_KEY = *********************
+    PIXABAY_API_KEY = ********************`
 
 ## Production mode
 
 -   Make sure you have run `npm install`.
--   In the terminal, run `npm build` followed by `npm run start`.
+-   In the terminal, run `npm build` and `npm run start` when the build completes.
     The app will run on port 3000.
 
 ## Development mode
@@ -47,10 +49,6 @@ You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
 -   In the terminal, run `npm build-dev`.
 -   Open up a second terminal window and execute `npm run start` (this is needed to execute the API requests on the server side).
 -   The app will automatically launch on Webpack Devserver on port 8080.
-
-## Deploying
-
-TODO
 
 ## Testing
 

@@ -10,8 +10,6 @@ export async function handleSubmit(event) {
 	//ToDo validate user input properly using JS
 	//if (!destinationName || !startDate) return;
 	console.log(destinationName, startDate);
-	// make sure to use absolute path in postData when working in development mode because the dev server runs on a different port
-	// use '/addtrip' in production mode
 	createTripData(destinationName, startDate)
 		.then((trip) => createTripCard(trip))
 		.catch((error) => handleError(error))
@@ -25,7 +23,7 @@ export function removeTrip(e, tripArray) {
 	console.log("DELETING ITEM!!! with ID: ", parseInt(e.target.value));
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
-	// find the trip and delete it from the trips array
+	//ToDo find the trip and delete it from the trips array
 	console.log(tripArray);
 	tripArray = tripArray.filter((trip) => {
 		trip.id !== parseInt(e.target.value);
