@@ -53,6 +53,7 @@ export const createTripData = async (destinationName, startDate) => {
 		};
 		trips.push(trip);
 		console.log('the trip array is:' + trips.length, trips);
+		mirrorToLocalStorage(trips);
 		return trip;
 	} catch (error) {
 		handleError(error);
@@ -110,4 +111,20 @@ export async function createTripCard(tripData) {
 	upcomingTripDisplay.appendChild(htmlFragment);
 	//const removeTripButton = document.querySelector(`#${tripData.id}`);
 	//removeTripButton.addEventListener('click', removeTrip);
+}
+
+function mirrorToLocalStorage(items) {
+	console.info('Saving items to localstorage');
+	localStorage.setItem('items', JSON.stringify(items));
+}
+
+export function restoreFromLocalStorage(items) {
+	console.info('Restoring from LS');
+	// pull the items from LS
+	const existingItems = JSON.parse(localStorage.getItem('items'));
+	if (existingItems.length) {
+		items.push(...existingItems);
+		items.map((item) => createTripCard(item));
+		//list.dispatchEvent(new CustomEvent('itemsUpdated'));
+	}
 }
