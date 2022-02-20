@@ -1,7 +1,7 @@
-const getDataFromGeonames = require('../src/server/index');
+const getDataFromGeoNames = require('../src/server/index');
 
-describe('Testing the postSentimentData function', () => {
-	test('postSentimentData function exists and returns something', () => {
-		expect(getDataFromGeonames).toBeDefined();
+describe('Testing the getDataFromGeoNames function', () => {
+	test('getDataFromGeoNames function exists', () => {
+		expect(getDataFromGeoNames).toBeDefined();
 	});
 });
