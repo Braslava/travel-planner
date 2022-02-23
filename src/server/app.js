@@ -38,12 +38,10 @@ async function createTripData(req, res) {
 	const geoNamesUser = process.env.GEONAMES_USER;
 	const weatherBitApiKey = process.env.WEATHERBIT_API_KEY;
 	const pixabayApiKey = process.env.PIXABAY_API_KEY;
-
 	// fetching latitude, longitude and countryname of the deestination
 	const geoNamesData = await getDataFromGeoNames(geoNamesUser, location);
 
 	// fetching weather data - temperature and description
-
 	const weatherInfo = await getWeather(
 		geoNamesData.lat,
 		geoNamesData.lon,

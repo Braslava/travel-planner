@@ -28,36 +28,29 @@ export const createTripData = async (destinationName, startDate) => {
 	const daysUntilTrip = checkHowLongAway(startDate);
 	// use absolute path in postData when working in development mode because the dev server runs on a different port
 	// can use '/addtrip' in production mode
-	try {
-		const retrievedTripData = await postData(
-			'http://localhost:3000/addtrip',
-			{
-				location: encodeURIComponent(destinationName),
-				startDate: startDate,
-				daysUntilTrip: daysUntilTrip,
-			}
-		);
-		console.log(retrievedTripData);
-		const trip = {
-			destinationName,
-			startDate,
-			daysUntilTrip,
-			// using the date in ms as unique id
-			id: Date.now(),
-			country: retrievedTripData.country,
-			destinationImageUrl: retrievedTripData.destinationImageUrl,
-			weatherInfo: {
-				temperature: retrievedTripData.weatherInfo.temperature,
-				description: retrievedTripData.weatherInfo.description,
-			},
-		};
-		trips.push(trip);
-		console.log('the trip array is:' + trips.length, trips);
-		mirrorToLocalStorage(trips);
-		return trip;
-	} catch (error) {
-		handleError(error);
-	}
+	const retrievedTripData = await postData('http://localhost:3000/addtrip', {
+		location: encodeURIComponent(destinationName),
+		startDate: startDate,
+		daysUntilTrip: daysUntilTrip,
+	});
+	console.log(retrievedTripData);
+	const trip = {
+		destinationName,
+		startDate,
+		daysUntilTrip,
+		// using the date in ms as unique id
+		id: Date.now(),
+		country: retrievedTripData.country,
+		destinationImageUrl: retrievedTripData.destinationImageUrl,
+		weatherInfo: {
+			temperature: retrievedTripData.weatherInfo.temperature,
+			description: retrievedTripData.weatherInfo.description,
+		},
+	};
+	trips.push(trip);
+	console.log('the trip array is:' + trips.length, trips);
+	mirrorToLocalStorage(trips);
+	return trip;
 };
 
 export function handleError(error) {
