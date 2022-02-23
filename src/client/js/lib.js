@@ -12,7 +12,7 @@ export function checkHowLongAway(dateInputValue) {
 	const today = new Date();
 	// create a date object from the html input value
 	const startDate = new Date(dateInputValue);
-	console.log('startdate ' + startDate);
+	// console.log('startdate ' + startDate);
 	// convert to ms, subtract and then convert back to days and round up
 	const days = Math.ceil(
 		(startDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
@@ -26,7 +26,7 @@ export function checkHowLongAway(dateInputValue) {
 // function that
 export const createTripData = async (destinationName, startDate) => {
 	const daysUntilTrip = checkHowLongAway(startDate);
-	// make sure to use absolute path in postData when working in development mode because the dev server runs on a different port
+	// use absolute path in postData when working in development mode because the dev server runs on a different port
 	// can use '/addtrip' in production mode
 	try {
 		const retrievedTripData = await postData(
@@ -83,9 +83,8 @@ export function hideLoader() {
 }
 
 // create the html element displaying trip data
-export async function createTripCard(tripData) {
-	//console.log(tripData);
-	// console.log(tripData.weatherInfo);
+export async function createTripCard(tripData = []) {
+	// console.log(tripData);
 	const tripHtml = `
 	<div class="trip-card">
 		<img class="js-destination-image" src="${tripData.destinationImageUrl}" alt="destination photo">
@@ -109,8 +108,6 @@ export async function createTripCard(tripData) {
 		.createContextualFragment(sanitizedTripHtml);
 
 	upcomingTripDisplay.appendChild(htmlFragment);
-	//const removeTripButton = document.querySelector(`#${tripData.id}`);
-	//removeTripButton.addEventListener('click', removeTrip);
 }
 
 function mirrorToLocalStorage(items) {
@@ -120,11 +117,10 @@ function mirrorToLocalStorage(items) {
 
 export function restoreFromLocalStorage(items) {
 	console.info('Restoring from LS');
-	// pull the items from LS
+	// pull the items from localstorage
 	const existingItems = JSON.parse(localStorage.getItem('items'));
 	if (existingItems.length) {
 		items.push(...existingItems);
 		items.map((item) => createTripCard(item));
-		//list.dispatchEvent(new CustomEvent('itemsUpdated'));
 	}
 }

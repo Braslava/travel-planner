@@ -18,13 +18,16 @@ export async function handleSubmit(event) {
 
 export function removeTrip(e, items) {
 	// delete the trip form UI
-	console.log(e.target);
-	console.log(e.currentTarget);
+	// console.log(e.target);
 	console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
 	//ToDo find the trip and delete it from the trips data array
-	console.log(items.length);
+	// console.log(items.length);
+	// console.table(items);
+	// console.log('button value');
+	// console.log(e.target.value);
+
 	items = items.filter((trip) => {
 		trip.id != e.target.value;
 		// trip.id !== parseInt(e.target.value);
