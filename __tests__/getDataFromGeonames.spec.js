@@ -1,4 +1,4 @@
-const getDataFromGeoNames = require('../src/server/index');
+const getDataFromGeoNames = require('../src/server/app');
 
 describe('Testing the getDataFromGeoNames function', () => {
 	test('getDataFromGeoNames function exists', () => {

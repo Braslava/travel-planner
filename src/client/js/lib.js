@@ -27,7 +27,7 @@ export function checkHowLongAway(dateInputValue) {
 export const createTripData = async (destinationName, startDate) => {
 	const daysUntilTrip = checkHowLongAway(startDate);
 	// make sure to use absolute path in postData when working in development mode because the dev server runs on a different port
-	// use '/addtrip' in production mode
+	// can use '/addtrip' in production mode
 	try {
 		const retrievedTripData = await postData(
 			'http://localhost:3000/addtrip',
@@ -84,8 +84,8 @@ export function hideLoader() {
 
 // create the html element displaying trip data
 export async function createTripCard(tripData) {
-	console.log(tripData);
-	console.log(tripData.weatherInfo);
+	//console.log(tripData);
+	// console.log(tripData.weatherInfo);
 	const tripHtml = `
 	<div class="trip-card">
 		<img class="js-destination-image" src="${tripData.destinationImageUrl}" alt="destination photo">

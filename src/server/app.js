@@ -3,9 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 //const fetch = require('node-fetch');
-require('dotenv').config();
-// enables to get portname from environment variable but use 3000 if there's none
-const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -14,15 +11,10 @@ console.log(__dirname);
 
 app.use(cors());
 
-app.listen(port, () => {
-	console.log(`Server running on port ${port}!`);
-	console.log(`Running on http://localhost:${port}/`);
-});
-
 app.use(express.json({ limit: '1mb' }));
 
 app.get('/', (req, res) => {
-	res.sendFile('/dist/index.html', { root: __dirname + '/../..' });
+	res.status(200).sendFile('/dist/index.html', { root: __dirname + '/../..' });
 });
 // app.get('/', (req, res) => {
 // 	res.sendFile('dist/index.html');
@@ -127,3 +119,5 @@ async function getImage(apiKey, searchWord) {
 		console.log(e);
 	}
 }
+
+module.exports = app;

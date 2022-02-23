@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 import { createTripCard } from '../src/client/js/lib';
-//import { upcomingTripDisplay } from '../src/client/js/elements';
+// import { upcomingTripDisplay } from '../src/client/js/elements';
 
-describe('Testing the updateReults function', () => {
+describe('Testing the createTripCard function', () => {
 	test('createTripCard function exists', () => {
 		expect(createTripCard).toBeDefined();
 	});
@@ -12,6 +12,7 @@ describe('Testing the updateReults function', () => {
 	test('the function creates a div with trip details in the trips section', () => {
 		document.body.innerHTML = `
         <section class="trips js-trips"></section>`;
+		const upcomingTripDisplay = document.querySelector('.js-trips')
 		const input = {
 			country: 'Spain',
 			daysUntilTrip: 4,
@@ -25,10 +26,9 @@ describe('Testing the updateReults function', () => {
 			},
 		};
 
-		const upcomingTripDisplay = document.querySelector('.js-trips')
 
 		createTripCard(input);
-		expect.document.body.innerHTML.toBe(
+		expect(document.body.innerHTML).toBe(
 			`<section class="trips js-trips">
 				<div class="trip-card">
 					<img class="js-destination-image" src="https://pixabay.com/testimage" alt="destination photo">
