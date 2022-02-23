@@ -43,6 +43,7 @@ async function createTripData(req, res) {
 	const geoNamesData = await getDataFromGeoNames(geoNamesUser, location);
 
 	// fetching weather data - temperature and description
+
 	const weatherInfo = await getWeather(
 		geoNamesData.lat,
 		geoNamesData.lon,
@@ -64,7 +65,6 @@ async function createTripData(req, res) {
 	tripData.weatherInfo = weatherInfo;
 	tripData.destinationImageUrl = destinationImageUrl;
 	tripData.country = geoNamesData.country;
-	//data.push(tripData);
 	res.send(tripData);
 	console.log(tripData);
 }
@@ -72,20 +72,16 @@ async function createTripData(req, res) {
 async function getDataFromGeoNames(username, city) {
 	const url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
 	try {
-		return await axios.get(url).then((res) => {
-			console.log(
-				res.data.geonames[0].lat,
-				res.data.geonames[0].lng,
-				res.data.geonames[0].countryName
-			);
-			return {
-				lat: res.data.geonames[0].lat,
-				lon: res.data.geonames[0].lng,
-				country: res.data.geonames[0].countryName,
-			};
-		});
+		const res = await axios.get(url);
+		const geoNamesData = {
+			lat: res.data.geonames[0].lat,
+			lon: res.data.geonames[0].lng,
+			country: res.data.geonames[0].countryName,
+		};
+		return geoNamesData;
 	} catch (e) {
 		console.log(e);
+		res.status(500).send('internal server error');
 	}
 }
 
@@ -95,16 +91,16 @@ async function getWeather(lat, lon, apiKey, day) {
 	if (day >= 15) {
 		day = 15;
 	}
+
 	try {
-		return await axios.get(url).then((res) => {
-			console.log(res.data.data[day]);
-			const weatherData = {
-				temperature: res.data.data[day].temp,
-				description: res.data.data[day].weather.description,
-			};
-			console.log(weatherData);
-			return weatherData;
-		});
+		const res = await axios.get(url);
+		console.log(res.data.data[day]);
+		const weatherData = {
+			temperature: res.data.data[day].temp,
+			description: res.data.data[day].weather.description,
+		};
+		console.log(weatherData);
+		return weatherData;
 	} catch (e) {
 		console.log(e);
 	}
@@ -113,13 +109,11 @@ async function getWeather(lat, lon, apiKey, day) {
 async function getImage(apiKey, searchWord) {
 	const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchWord}&image_type=photo`;
 	try {
-		return await axios.get(url).then((res) => {
-			console.log(res.data.hits[0]);
-			const photoUrl = res.data.hits[0].webformatURL;
-			return photoUrl;
-		});
-	} catch (e) {
-		console.log(e);
+		const res = await axios.get(url);
+		const photoUrl = res.data.hits[0].webformatURL;
+		return photoUrl;
+	} catch (err) {
+		console.log(err);
 	}
 }
 
