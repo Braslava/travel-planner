@@ -1,8 +1,6 @@
-//const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-//const fetch = require('node-fetch');
 
 const app = express();
 
@@ -14,11 +12,10 @@ app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 
 app.get('/', (req, res) => {
-	res.status(200).sendFile('/dist/index.html', { root: __dirname + '/../..' });
+	res.status(200).sendFile('/dist/index.html', {
+		root: __dirname + '/../..',
+	});
 });
-// app.get('/', (req, res) => {
-// 	res.sendFile('dist/index.html');
-// });
 
 app.post('/addtrip', createTripData);
 
@@ -28,6 +25,12 @@ async function createTripData(req, res) {
 	const location = req.body.location;
 	const startDate = req.body.startDate;
 	const daysUntilTrip = req.body.daysUntilTrip;
+	// validate the input and return res.send('invalid input', 400 if nothing there)
+	// ToDo create a function isValidDate format to check if there's valid date input
+	if (!location || !startDate) {
+		return res.status(400).send('Invalid input');
+	}
+
 	console.log(
 		`user input is ${location} and ${startDate} and their trip is in ${daysUntilTrip} days`
 	);
