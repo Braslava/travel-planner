@@ -110,7 +110,7 @@ export async function createTripCard(tripData = []) {
 	upcomingTripDisplay.appendChild(htmlFragment);
 }
 
-function mirrorToLocalStorage(items) {
+export function mirrorToLocalStorage(items) {
 	console.info('Saving items to localstorage');
 	localStorage.setItem('items', JSON.stringify(items));
 }
