@@ -29,7 +29,7 @@ async function createTripData(req, res) {
 	// validate the input and return res.send('invalid input', 400 if nothing there)
 	// ToDo create a function isValidDate format to check if there's valid date input
 	if (!location || !startDate) {
-		return res.status(400).send('Invalid input');
+		return res.status(400).send({ error: 'Invalid input' });
 	}
 	console.log(
 		`user input is ${location} and ${startDate} and their trip is in ${daysUntilTrip} days`
@@ -66,7 +66,7 @@ async function createTripData(req, res) {
 		console.log(tripData);
 	} catch (err) {
 		console.log(err);
-		res.status(500).send('Internal server error!');
+		return res.status(500).send({ error: 'Internal server error!' });
 	}
 }
 
