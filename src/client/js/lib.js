@@ -12,7 +12,6 @@ export function checkHowLongAway(dateInputValue) {
 	const today = new Date();
 	// create a date object from the html input value
 	const startDate = new Date(dateInputValue);
-	// console.log('startdate ' + startDate);
 	// convert to ms, subtract and then convert back to days and round up
 	const days = Math.ceil(
 		(startDate.getTime() - today.getTime()) / (1000 * 3600 * 24)
@@ -23,7 +22,7 @@ export function checkHowLongAway(dateInputValue) {
 	return days;
 }
 
-// function that
+// function that creates an object with data about the trip
 export const createTripData = async (destinationName, startDate) => {
 	const daysUntilTrip = checkHowLongAway(startDate);
 	// use absolute path in postData when working in development mode because the dev server runs on a different port
@@ -48,7 +47,6 @@ export const createTripData = async (destinationName, startDate) => {
 		},
 	};
 	trips.push(trip);
-	console.log('the trip array is:' + trips.length, trips);
 	mirrorToLocalStorage(trips);
 	return trip;
 };
@@ -76,7 +74,7 @@ export function hideLoader() {
 }
 
 // create the html element displaying trip data
-export async function createTripCard(tripData = []) {
+export async function createTripCard(tripData) {
 	// console.log(tripData);
 	const tripHtml = `
 	<div class="trip-card">
@@ -104,7 +102,6 @@ export async function createTripCard(tripData = []) {
 }
 
 export function mirrorToLocalStorage(items) {
-	console.info('Saving items to localstorage');
 	localStorage.setItem('items', JSON.stringify(items));
 }
 

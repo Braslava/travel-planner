@@ -1,6 +1,7 @@
 import { createTripCard, resetForm, createTripData } from './lib';
-import { form } from './elements';
+import { form, upcomingTripDisplay } from './elements';
 import { handleError, mirrorToLocalStorage } from './lib';
+import { initializeApp } from './initialize';
 
 export async function handleSubmit(event) {
 	event.preventDefault();
@@ -21,13 +22,13 @@ export function removeTrip(e, items) {
 	console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
-	//ToDo find the trip and delete it from the trips data array
+	//find the trip and delete it from the trips data array
 	console.log(items.length);
 
 	items = items.filter((trip) => {
-		// return trip.id != e.target.value;
 		return trip.id !== parseInt(e.target.value);
 	});
+	// items.map(item => createTripCard(item));
 	console.log(items.length);
 	mirrorToLocalStorage(items);
 }

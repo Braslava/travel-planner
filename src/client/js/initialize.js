@@ -11,3 +11,5 @@ export function initializeApp() {
 	upcomingTripDisplay.addEventListener('click', (e) => removeTrip(e, trips));
 	restoreFromLocalStorage(trips);
 }
+
+
