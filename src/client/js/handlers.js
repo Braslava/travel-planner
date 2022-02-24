@@ -1,7 +1,6 @@
 import { createTripCard, resetForm, createTripData } from './lib';
 import { form, upcomingTripDisplay } from './elements';
 import { handleError, mirrorToLocalStorage } from './lib';
-import { initializeApp } from './initialize';
 
 export async function handleSubmit(event) {
 	event.preventDefault();
@@ -11,10 +10,17 @@ export async function handleSubmit(event) {
 	//ToDo validate user input properly using JS
 	//if (!destinationName || !startDate) return;
 	console.log(destinationName, startDate);
-	createTripData(destinationName, startDate)
-		.then((trip) => createTripCard(trip))
-		.catch((error) => handleError(error))
-		.then(() => resetForm(form));
+	try {
+		await createTripData(destinationName, startDate);
+	} catch (err) {
+		handleError(err);
+	}
+
+	await resetForm(form);
+
+	// .then((trips) => createTripCards(trips))
+	// .catch((error) => handleError(error))
+	// .then(() => resetForm(form));
 }
 
 export function removeTrip(e, items) {
@@ -29,6 +35,8 @@ export function removeTrip(e, items) {
 		return trip.id !== parseInt(e.target.value);
 	});
 	// items.map(item => createTripCard(item));
+	upcomingTripDisplay.dispatchEvent(new CustomEvent('tripsUpdated'));
+
 	console.log(items.length);
-	mirrorToLocalStorage(items);
+	// mirrorToLocalStorage(items);
 }

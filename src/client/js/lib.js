@@ -1,6 +1,5 @@
 import { wait } from './helpers';
-import { loader } from './elements';
-import { upcomingTripDisplay } from './elements';
+import { loader, upcomingTripDisplay } from './elements';
 import { postData } from './postData';
 import { trips } from './initialize';
 
@@ -47,8 +46,9 @@ export const createTripData = async (destinationName, startDate) => {
 		},
 	};
 	trips.push(trip);
-	mirrorToLocalStorage(trips);
-	return trip;
+	// custom event that fires off each time the trips array is updated
+	upcomingTripDisplay.dispatchEvent(new CustomEvent('tripsUpdated'));
+	return trips;
 };
 
 export function handleError(error) {
@@ -75,7 +75,7 @@ export function hideLoader() {
 
 // create the html element displaying trip data
 export async function createTripCard(tripData) {
-	// console.log(tripData);
+	
 	const tripHtml = `
 	<div class="trip-card">
 		<img class="js-destination-image" src="${tripData.destinationImageUrl}" alt="destination photo">
@@ -91,14 +91,15 @@ export async function createTripCard(tripData) {
 			<button class="button button--secondary js-remove-button" value="${tripData.id}">Remove trip</button>
 		</div>
 	</div>
-	`;
+	`
 	// sanitizing the html string to prevent XSS
 	const sanitizedTripHtml = DOMPurify.sanitize(tripHtml);
-	const htmlFragment = document
-		.createRange()
-		.createContextualFragment(sanitizedTripHtml);
+	upcomingTripDisplay.innerHTML = sanitizedTripHtml;
+	// const htmlFragment = document
+	// 	.createRange()
+	// 	.createContextualFragment(sanitizedTripHtml);
 
-	upcomingTripDisplay.appendChild(htmlFragment);
+	// upcomingTripDisplay.appendChild(htmlFragment);
 }
 
 export function mirrorToLocalStorage(items) {
@@ -111,6 +112,7 @@ export function restoreFromLocalStorage(items) {
 	const existingItems = JSON.parse(localStorage.getItem('items'));
 	if (existingItems.length) {
 		items.push(...existingItems);
-		items.map((item) => createTripCard(item));
+		//items.map((item) => createTripCard(item));
 	}
+		upcomingTripDisplay.dispatchEvent(new CustomEvent('tripsUpdated'));
 }
