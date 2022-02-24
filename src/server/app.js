@@ -30,7 +30,6 @@ async function createTripData(req, res) {
 	if (!location || !startDate) {
 		return res.status(400).send('Invalid input');
 	}
-
 	console.log(
 		`user input is ${location} and ${startDate} and their trip is in ${daysUntilTrip} days`
 	);
@@ -39,40 +38,33 @@ async function createTripData(req, res) {
 	const weatherBitApiKey = process.env.WEATHERBIT_API_KEY;
 	const pixabayApiKey = process.env.PIXABAY_API_KEY;
 	// fetching latitude, longitude and countryname of the deestination
-	try {
-		const geoNamesData = await getDataFromGeoNames(geoNamesUser, location);
-		tripData.country = geoNamesData.country;
-	} catch (err) {
-		return res.status(500).send('Internal server error');
-	}
+	// try {
+	const geoNamesData = await getDataFromGeoNames(geoNamesUser, location);
+	// } catch (err) {
+	// 	console.log(err);
+	// 	res.status(500).send('Internal server error!')
+	// }
 
 	// fetching weather data - temperature and description
-	try {
-		const weatherInfo = await getWeather(
-			geoNamesData?.lat,
-			geoNamesData?.lon,
-			weatherBitApiKey,
-			daysUntilTrip
-		);
-		console.log(weatherInfo);
-		tripData.weatherInfo = weatherInfo;
-	} catch (err) {
-		return res.status(500).send('Internal server error');
-	}
+	const weatherInfo = await getWeather(
+		geoNamesData.lat,
+		geoNamesData.lon,
+		weatherBitApiKey,
+		daysUntilTrip
+	);
+	console.log(weatherInfo);
 
 	// fetching an image of the location but if none retrieved use the country from geonames data as a search term
-	let destinationImageUrl = await getImage(pixabayApiKey, location);
-	if (!destinationImageUrl) {
-		destinationImageUrl = await getImage(
-			pixabayApiKey,
-			geoNamesData.country
-		);
-	}
+	let destinationImageUrl = await getImage(
+		pixabayApiKey,
+		location,
+		geoNamesData.country
+	);
 
 	// assigning the data to the object that is sent in response
-
+	tripData.weatherInfo = weatherInfo;
 	tripData.destinationImageUrl = destinationImageUrl;
-
+	tripData.country = geoNamesData.country;
 	res.send(tripData);
 	console.log(tripData);
 }
@@ -80,13 +72,13 @@ async function createTripData(req, res) {
 async function getDataFromGeoNames(username, city) {
 	const url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=${username}`;
 	// try {
-		const res = await axios.get(url);
-		const geoNamesData = {
-			lat: res.data.geonames[0].lat,
-			lon: res.data.geonames[0].lng,
-			country: res.data.geonames[0].countryName,
-		};
-		return geoNamesData;
+	const res = await axios.get(url);
+	const geoNamesData = {
+		lat: res.data.geonames[0].lat,
+		lon: res.data.geonames[0].lng,
+		country: res.data.geonames[0].countryName,
+	};
+	return geoNamesData;
 	// } catch (e) {
 	// 	console.log(e);
 	// 	res.status(500).send('internal server error');
@@ -100,7 +92,7 @@ async function getWeather(lat, lon, apiKey, day) {
 		day = 15;
 	}
 
-	// try {
+	try {
 		const res = await axios.get(url);
 		console.log(res.data.data[day]);
 		const weatherData = {
@@ -109,22 +101,40 @@ async function getWeather(lat, lon, apiKey, day) {
 		};
 		console.log(weatherData);
 		return weatherData;
-	// } catch (e) {
-	// 	console.log(e);
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+async function getImage(apiKey, searchWord, searchWord2) {
+	const url1 = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(
+		searchWord
+	)}&image_type=photo`;
+	const url2 = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(
+		searchWord2
+	)}&image_type=photo`;
+	// try {
+	const res = await axios.get(url1);
+	let photoUrl = res.data.hits[0].webformatURL;
+	if (!photoUrl) {
+		const res = await axios.get(url2);
+		photoUrl = res.data.hits[0].webformatURL;
+	}
+	return photoUrl;
+	// } catch (err) {
+	// 	console.log(err);
 	// }
 }
 
-async function getImage(apiKey, searchWord) {
-	const url = `https://pixabay.com/api/?key=${apiKey}&q=${encodeURIComponent(
-		searchWord
-	)}&image_type=photo`;
-	try {
-		const res = await axios.get(url);
-		const photoUrl = res.data.hits[0].webformatURL;
-		return photoUrl;
-	} catch (err) {
-		console.log(err);
-	}
-}
+// async function getImage(apiKey, searchWord) {
+// 	const url = `https://pixabay.com/api/?key=${apiKey}&q=${searchWord}&image_type=photo`;
+// 	try {
+// 		const res = await axios.get(url);
+// 		const photoUrl = res.data.hits[0].webformatURL;
+// 		return photoUrl;
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// }
 
 module.exports = app;

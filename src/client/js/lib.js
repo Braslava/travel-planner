@@ -52,7 +52,7 @@ export const createTripData = async (destinationName, startDate) => {
 };
 
 export function handleError(error) {
-	alert('There was an error processing this request.', error);
+	alert('There was an error processing this request. Please make sure your inputs are correct.', error);
 	console.log('error', error);
 }
 

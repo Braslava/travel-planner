@@ -6,7 +6,6 @@ import {
 	mirrorToLocalStorage,
 } from './lib';
 import { form } from './elements';
-import {} from './lib';
 
 export async function handleSubmit(event) {
 	event.preventDefault();

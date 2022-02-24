@@ -1,4 +1,5 @@
 import { showLoader } from './lib.js';
+
 export async function postData(url = '', data = {}) {
 	// display a loader while fetching data
 	showLoader();
@@ -19,5 +20,6 @@ export async function postData(url = '', data = {}) {
 	} catch (error) {
 		//handleError(error);
 		console.log('error', error);
+		//return error;
 	}
 }
