@@ -1,11 +1,15 @@
-import { createTripCard, resetForm, createTripData } from './lib';
-import { form, upcomingTripDisplay } from './elements';
-import { handleError, mirrorToLocalStorage } from './lib';
-import { initializeApp } from './initialize';
+import {
+	createTripCard,
+	resetForm,
+	createTripData,
+	handleError,
+	mirrorToLocalStorage,
+} from './lib';
+import { form } from './elements';
+import {} from './lib';
 
 export async function handleSubmit(event) {
 	event.preventDefault();
-	console.log('::: Form Submitted :::');
 	const destinationName = form.querySelector('#location').value.trim();
 	const startDate = form.querySelector('#departure-date').value;
 	//ToDo validate user input properly using JS
