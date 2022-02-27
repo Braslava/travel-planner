@@ -26,12 +26,12 @@ export function removeTrip(e, items) {
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
 	//find the trip and delete it from the trips data array
-	console.log(items.length);
+	// console.log(items.length);
 
 	items = items.filter((trip) => {
 		return trip.id !== parseInt(e.target.value);
 	});
 	// items.map(item => createTripCard(item));
-	console.log(items.length);
+	// console.log(items.length);
 	mirrorToLocalStorage(items);
 }

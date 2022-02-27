@@ -1,6 +1,5 @@
 import { wait } from './helpers';
 import { loader } from './elements';
-import { upcomingTripDisplay } from './elements';
 import { postData } from './postData';
 import { trips } from './initialize';
 
@@ -32,7 +31,6 @@ export const createTripData = async (destinationName, startDate) => {
 		startDate: startDate,
 		daysUntilTrip: daysUntilTrip,
 	});
-	console.log(retrievedTripData);
 	const trip = {
 		destinationName,
 		startDate,
