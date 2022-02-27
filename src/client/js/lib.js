@@ -52,7 +52,10 @@ export const createTripData = async (destinationName, startDate) => {
 };
 
 export function handleError(error) {
-	alert('There was an error processing this request. Please make sure your inputs are correct.', error);
+	alert(
+		'There was an error processing this request. Please make sure your inputs are correct.',
+		error
+	);
 	console.log('error', error);
 }
 
@@ -75,17 +78,14 @@ export function hideLoader() {
 
 // create the html element displaying trip data
 export async function createTripCard(tripData) {
-	// console.log(tripData);
+	const upcomingTripDisplay = document.querySelector('.js-trips');
 	const tripHtml = `
 	<div class="trip-card">
 		<img class="js-destination-image" src="${tripData.destinationImageUrl}" alt="destination photo">
 		<div class="trip-details">
-			<h2 class="heading2">Upcoming trip to <span class="js-location-display">${tripData.destinationName}, ${tripData.country}</span>
-			</h2>
-			<p class="leave-date">Departure: <span class="js-dep-date-display">${tripData.startDate}</span>
-			<p>
-			<p class="departure-countdown js-departure-countdown">${tripData.daysUntilTrip} days left until your trip to ${tripData.destinationName}!
-			<p>
+			<h2 class="heading2">Upcoming trip to <span class="js-location-display">${tripData.destinationName}, ${tripData.country}</span></h2>
+			<p class="leave-date">Departure: <span class="js-dep-date-display">${tripData.startDate}</span></p>
+			<p class="departure-countdown js-departure-countdown">${tripData.daysUntilTrip} days left until your trip to ${tripData.destinationName}!</p>
 			<p class="subheading">Weather forecast for the time of your stay:</p>
 			<p class="js-weather-display">${tripData.weatherInfo.description} and ${tripData.weatherInfo.temperature} degress</p>
 			<button class="button button--secondary js-remove-button" value="${tripData.id}">Remove trip</button>

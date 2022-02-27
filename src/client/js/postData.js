@@ -20,6 +20,6 @@ export async function postData(url = '', data = {}) {
 	} catch (error) {
 		//handleError(error);
 		console.log('error', error);
-		//return error;
+		return error;
 	}
 }
