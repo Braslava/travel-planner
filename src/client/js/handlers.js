@@ -22,7 +22,7 @@ export async function handleSubmit(event) {
 
 export function removeTrip(e, items) {
 	// delete the trip form UI
-	console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
+	//console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
 	//find the trip and delete it from the trips data array
