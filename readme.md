@@ -22,7 +22,7 @@ See [project rubric](https://review.udacity.com/#!/rubrics/3636/view) for more.
 
 ## Dependencies
 
-You need [Node.js](https://nodejs.dev/) and npm installed on you computer.
+You need [Node.js](https://nodejs.dev/) and npm installed on you computer. Use **version 14.0.0 or higher of Node.js**.
 
 ## Getting started
 
