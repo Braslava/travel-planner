@@ -22,16 +22,20 @@ export async function handleSubmit(event) {
 
 export function removeTrip(e, items) {
 	// delete the trip form UI
-	//console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
+	console.log('DELETING ITEM with ID: ', parseInt(e.target.value));
 	if (!e.target.matches('.js-remove-button')) return;
 	e.target.closest('.trip-card').remove();
 	//find the trip and delete it from the trips data array
-	// console.log(items.length);
+	console.log(items.length);
 
-	items = items.filter((trip) => {
-		return trip.id !== parseInt(e.target.value);
+	// arr find index
+	// arr splice
+	const index = items.findIndex((trip) => {
+		return trip.id === parseInt(e.target.value);
 	});
-	// items.map(item => createTripCard(item));
-	// console.log(items.length);
+
+	items.splice(index, 1);
+
+	console.log(items.length);
 	mirrorToLocalStorage(items);
 }
